@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(74, 74, 74);
+    color: white;
+}
+#signup-form{
+   width: 25%;
+}
+
+.nav-link {
+    position: relative;
+    right: 10px;
+    padding: 0 8px;
+    }

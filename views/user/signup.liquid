@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link 
-    <title>Sign Up</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     {% layout 'layout.liquid' %}
@@ -18,6 +17,7 @@
             <legend>New User</legend>
             <label class="form-label">Username:</label>
             <input 
+                id="signup-form"
                 type="text" 
                 placeholder="username" 
                 name="username"
@@ -25,6 +25,7 @@
             >
             <label class="form-label">Password:</label>
             <input 
+                id="signup-form"
                 type="password" 
                 placeholder="password" 
                 name="password"
@@ -35,7 +36,7 @@
                 type="submit" 
                 value="Create Account" 
                 name="submit"
-                class="btn btn-success"
+                class="btn btn-dark mt-3"
             >
     </form>
 </div>
