@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Login</title>
+</head>
+<body>
+    {% layout 'layout.liquid' %}
+
+    {% block content %}
+    
+    <div class="container-md">
+        <form action="/users/login" method="POST">
+            <fieldset>
+                <legend>Welcome Back, please log in here</legend>
+                <label class="form-label">Username:</label>
+                <input 
+                    id="signup-form"
+                    type="text" 
+                    placeholder="username" 
+                    name="username"
+                    class="form-control"
+                >
+                <label class="form-label">Password:</label>
+                <input 
+                    id="signup-form"
+                    type="password" 
+                    placeholder="password" 
+                    name="password"
+                    class="form-control"
+                >
+            </fieldset>
+                <input 
+                    type="submit" 
+                    value="Let's Wander!" 
+                    class="btn btn-dark mt-2"
+                >
+        </form>
+    </div>
+    
+    {% endblock %}
