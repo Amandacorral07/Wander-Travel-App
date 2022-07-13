@@ -10,7 +10,8 @@
     {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-fluid">
-    {%if flights._id == beachy %}
+    {%if flights == beachy %}
+    <script>console.log({flights})</script>
 <h1>Beach Vacation Ideas</h1>
 <img src="" id="beachy-img">
 <ul>
@@ -33,7 +34,7 @@
 <form action="/flights/beachy" method="POST">
 <input type="submit" class="" value="Search a city">
 </form>
- {% elsif flights._id == cozy %}
+ {% elsif flights.id == cozy %}
  <h1> Cozy Vacation Ideas</h1>
 <img src="" id="cozy-img">
 <ul>
@@ -55,7 +56,7 @@
 <form action="/flights/cozy" method="POST">
 <input type="submit" class="" value="Search a city">
 </form>
-{% elsif flights._id == tasty %}
+{% elsif flights.id == tasty %}
  <h1> Tasty Vacation Ideas</h1>
 <img src="" id="tasty-img">
 <ul>
@@ -77,7 +78,7 @@
 <form action="/flights/cozy" method="POST">
 <input type="submit" class="" value="Search a city">
 </form>
-{% elsif flights._id == romantic %}
+{% elsif flights.id == romantic %}
  <h1> Romantic Vacation Ideas</h1>
 <img src="" id="romantic-img">
 <ul>
@@ -124,6 +125,7 @@
 <form action="/flights/adventerous" method="POST">
 <input type="submit" class="" value="Search a city">
 </form>
+
 {% endif%}
 
 </div>

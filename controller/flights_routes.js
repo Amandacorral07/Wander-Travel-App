@@ -10,25 +10,25 @@ const amadeus = new Amadeus({
 
 const Flight = require('../models/flights')
 
-    amadeus.shopping.flightOffersSearch.get({
-    originLocationCode: 'SYD',
-    destinationLocationCode: 'BKK',
-    departureDate: '2022-11-01',
-    adults: '1'
-    }).then(function(response){
-    return amadeus.shopping.flightOffers.pricing.post(
-        JSON.stringify({
-        'data': {
-            'type': 'flight-offers-pricing',
-            'flightOffers': [response.data[0]]
-        }
-        })
-    )
-    }).then(function(response){
-    console.log(response.data);
-    }).catch(function(responseError){
-    console.log(responseError);
-    })
+    // amadeus.shopping.flightOffersSearch.get({
+    // originLocationCode: 'SYD',
+    // destinationLocationCode: 'BKK',
+    // departureDate: '2022-11-01',
+    // adults: '1'
+    // }).then(function(response){
+    // return amadeus.shopping.flightOffers.pricing.post(
+    //     JSON.stringify({
+    //     'data': {
+    //         'type': 'flight-offers-pricing',
+    //         'flightOffers': [response.data[0]]
+    //     }
+    //     })
+    // )
+    // }).then(function(response){
+    // console.log(response.data);
+    // }).catch(function(responseError){
+    // console.log(responseError);
+    // })
 
     // amadeus.shopping.flightOffersSearch.post(JSON.stringify({
     //     "currenCody":"USD"
@@ -141,17 +141,21 @@ router.get('/', (req, res)=>{
     // const apiUrl =``
 // })
 router.get('/:id', (req, res)=>{
-    const flightId = req.params.id
-    Flight.findById(flightId)
+    const flights = req.params.id
+    console.log(flights)
+    // .then(flight =>{
+        res.render('flights/show', {flights})
+    // })
+    // Flight.findById(flightId)
 
-    .then(flight =>{
-        const userId= req.session.userId
-        const username = req.session.username
-        res.render('flights/show', {userId, username})
-    })
-    .catch(err=>{
-        res.json(err)
-    })
+    // .then(flight =>{
+    //     const userId= req.session.userId
+    //     const username = req.session.username
+    //     res.render('flights/show', {userId, username})
+    // })
+    // .catch(err=>{
+    //     res.json(err)
+    // })
 })
 
 

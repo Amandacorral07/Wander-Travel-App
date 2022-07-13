@@ -1,4 +1,5 @@
 // using an already connected mongoose not a fresh one from node_modules
+const { Mongoose } = require('mongoose')
 const mongoose = require('./connection')
 // const commentSchema = require('./comment')
 
@@ -13,11 +14,11 @@ const flightOfferSchema = new Schema ({
     adults: String, 
     
     owner: {
-        type: Schema.Types.ObjectId,//a single User ._id
+        type: mongoose.Types.ObjectId,//a single User ._id
         ref: 'User' // const User = model('User', userSchema)
         // the string of 'User' is how we reference a model
     },
-    // comments: [commentSchema] // a fruit can have many comments. Comments are a sub doc of Fruit
+    
 }, {
     timestamps: true
 })
