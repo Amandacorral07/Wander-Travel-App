@@ -6,7 +6,9 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-// const fruitRoutes = require('./controller/fruit_routes')
+
+
+const flightRoutes = require('./controller/flights_routes')
 const userRoutes = require('./controller/user_routes')
 // const commentRoutes = require('./controller/comment_routes')
 
@@ -14,6 +16,7 @@ const userRoutes = require('./controller/user_routes')
 // Create our express application object
 ////////////////////////////////////////////
 const app = require('liquid-express-views')(express())
+
 
 ////////////////////////////////////////////
 // Middleware
@@ -26,6 +29,7 @@ app.use(express.urlencoded({ extended: false }))
 // to serve files from public statically
 app.use(express.static('public'))
 // bring in our session middleware 
+
 const session = require('express-session')
 const MongoStore= require('connect-mongo')
 
@@ -45,7 +49,7 @@ app.use(
 // Routes
 ////////////////////////////////////////////
 // set up middleware to use route controllers
-// app.use('/fruits', fruitRoutes)
+app.use('/flights', flightRoutes)
 app.use('/users', userRoutes)
 // app.use('/comments', commentRoutes)
 //localhost:3000

@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     {% layout 'layout.liquid' %}
-
-{% block content %}
-
-<div class="container-md">
+    
+    {% block content %}
+    <div class="container-fluid" id="signin-box">
+    <div class="overlay"></div>
+    <iframe width="853" height="480" src="https://www.youtube.com/embed/DeELRNKBplg?autoplay=1&mute=1&showinfo=1&loop=1&playlist=DeELRNKBplg&playsinline=0&controls=0&modestbranding&rel=0"  frameborder="0" allowfullscreen id="myVideo"></iframe>
+<div class="container-fluid" id="container-signin">
     <form action="/users/signup" method="POST">
         <fieldset>
             <legend>New Wanderer</legend>
@@ -23,7 +25,7 @@
                 name="username"
                 class="form-control"
             >
-            <label class="form-label">Password:</label>
+            <label class="form-label mt-1">Password:</label>
             <input 
                 id="signup-form"
                 type="password" 
@@ -39,6 +41,7 @@
                 class="btn btn-dark mt-3"
             >
     </form>
+</div>
 </div>
 {% endblock %}
 </body>

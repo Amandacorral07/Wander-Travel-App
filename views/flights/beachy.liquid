@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beachy Vacations</title>
+</head>
+<body>
+    {% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-fluid">
+<h1>Beach Vacation Idea</h1>
+<img src="" id="beachy-img">
+<ul>
+    <li>
+        Bora Bora 
+    </li>
+    <li>
+        Hawaii
+    </li>
+    <li>
+         Turks and Caicos
+    </li>
+    <li>
+        Florida
+    </li>
+    <li>
+        Mexico
+    </li>
+</ul>
+<form action="/flights/beachy" method="POST">
+<input type="text" class="form-control" placeholder="Search a city" name="citySearch">
+</form>
+</div>
+{% endblock %}
+</body>
+</html>

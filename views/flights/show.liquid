@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beachy Vacations</title>
+</head>
+<body>
+    {% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-fluid">
+    {%if flights._id == beachy %}
+<h1>Beach Vacation Ideas</h1>
+<img src="" id="beachy-img">
+<ul>
+    <li>
+        Bora Bora 
+    </li>
+    <li>
+        Hawaii
+    </li>
+    <li>
+         Turks and Caicos
+    </li>
+    <li>
+        Florida
+    </li>
+    <li>
+        Mexico
+    </li>
+</ul>
+<form action="/flights/beachy" method="POST">
+<input type="submit" class="" value="Search a city">
+</form>
+ {% elsif flights._id == cozy %}
+ <h1> Cozy Vacation Ideas</h1>
+<img src="" id="cozy-img">
+<ul>
+    <li>
+        Banff
+    </li>
+    <li>
+        Utah
+    </li>
+    <li>
+        Finland
+    </li>
+    <li>
+        Montana
+    </li>
+        Norway
+    </li>
+</ul>
+<form action="/flights/cozy" method="POST">
+<input type="submit" class="" value="Search a city">
+</form>
+{% elsif flights._id == tasty %}
+ <h1> Tasty Vacation Ideas</h1>
+<img src="" id="tasty-img">
+<ul>
+    <li>
+        Italy
+    </li>
+    <li>
+        Thailand
+    </li>
+    <li>
+        Peru
+    </li>
+    <li>
+        Japan
+    </li>
+        Hong Kong
+    </li>
+</ul>
+<form action="/flights/cozy" method="POST">
+<input type="submit" class="" value="Search a city">
+</form>
+{% elsif flights._id == romantic %}
+ <h1> Romantic Vacation Ideas</h1>
+<img src="" id="romantic-img">
+<ul>
+    <li>
+        Costa Rica
+    </li>
+    <li>
+       Paris
+    </li>
+    <li>
+       California
+    </li>
+    <li>
+        Italy
+    </li>
+        Greece
+    </li>
+</ul>
+<form action="/flights/romantic" method="POST">
+<input type="submit" class="" value="Search a city">
+</form>
+{% else %}
+ <h1> Adventerous Vacation Ideas</h1>
+<img src="" id="adv-img">
+<ul>
+    <li>
+       Galapagos Islands
+    </li>
+    <li>
+       Africa
+    </li>
+    <li>
+       Switzerland
+    </li>
+    <li>
+        Arizona & Utah
+    </li>
+        Iceland
+    </li>
+    </li>
+        Australia
+    </li>
+</ul>
+<form action="/flights/adventerous" method="POST">
+<input type="submit" class="" value="Search a city">
+</form>
+{% endif%}
+
+</div>
+{% endblock %}
+</body>
+</html>

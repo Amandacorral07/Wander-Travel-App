@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Index</title>
+</head>
+<body>
+    {% layout 'layout.liquid' %}
+
+    {% block content %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4" >
+      <a href="/flights/beachy" style= "color: white" id="beachy">Beachy</a>
+        </div>
+        <div class="col-md-4">
+            <a href="/flights/tasty" style= "color: white" id="tasty">Tasty</a>
+        </div>
+        <div class="col-md-4" >
+            <a href="/flights/cozy" style= "color: white" id="cozy">Cozy</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/flights/romantic" style= "color: white" id="romantic">Romantic</a>
+        </div>
+        <div class="col-md-6">
+            <a href="/flights/adventerous" style= "color: white" id="adventerous">Adventerous</a>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+</body>
+</html>
