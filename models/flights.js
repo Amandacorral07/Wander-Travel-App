@@ -11,7 +11,8 @@ const flightOfferSchema = new Schema ({
     originLocationCode: String, 
     destinationLocationCode: String,
     departureDate: String,
-    adults: String, 
+    adults: String,
+    category: String, 
     
     owner: {
         type: mongoose.Types.ObjectId,//a single User ._id
