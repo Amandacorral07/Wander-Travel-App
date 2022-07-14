@@ -11,7 +11,9 @@ const flightOfferSchema = new Schema ({
     originLocationCode: String, 
     destinationLocationCode: String,
     departureDate: String,
-    adults: String,
+    returnDate: String,
+    adults: Number,
+    nonStop: Boolean,
     category: String, 
     
     owner: {
