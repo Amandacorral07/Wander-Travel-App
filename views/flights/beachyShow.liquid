@@ -8,49 +8,24 @@
 </head>
 <body>
     {% layout 'layout.liquid' %}
-{% block content %}
-<div class="container-fluid">
-<h1>Beachy Vacation Flights</h1>
-<img src="" id="beachy-img">
-
-{% for oneData in data %}
-<div class="card">
-    <div class="card-body">
-<p>
-    City: {{.itineraries[0].segments[0].departure.iataCode}}
-</p>
-
-
-
-
-
+    {% block content %}
+    <div class="container-fluid">
+        <h1>Beachy Vacation Flights</h1>
+        <h2>Hi</h2>
+        <!-- <img src="" id="beachy-img"> -->
+       
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">
+                </h6>
+                <p style="color: black">
+                    City Departure: {{ myData.data }}
+                </p>
+                <script>console.log(myData.data)</script>
+            </div>
+        </div>
+       
     </div>
-    
-</div>
-    {% endfor %}
-
-
-</div>
-{% endblock %}
+    {% endblock %}
 </body>
 </html>
-
-<!-- <One-way: {{data.oneWay}
-
-        Departure:
-    
-            City: {{oneData.
-                oneWay:
-            }).itineraries[0].segments[0].departure.iataCode}} 
-    
-            Terminal: {{data.itineraries[0].segments[0].departure.terminal}}
-    
-            Departure Date: {{data.itineraries[0].segments[0].departure.at}}
-
-        Arrival:
-    
-            City: {{data.itineraries[0].segments[0].arrival.iataCode}} 
-    
-            Terminal: {{data.itineraries[0].segments[0].arrival.terminal}}
-    
-            Arrival Date: {{data.itineraries[0].segments[0].arrival.at}} -->
