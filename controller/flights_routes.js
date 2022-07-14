@@ -9,6 +9,7 @@ const amadeus = new Amadeus({
 })
 
 const Flight = require('../models/flights')
+const { response } = require('express')
 
 router.post('/vacation',(req, res) =>{
         const originLocationCode = req.body.city
@@ -26,23 +27,17 @@ router.post('/vacation',(req, res) =>{
         "departureDate": departureDate,
         "adults": adults
         })
-        .then(function(response){
-        return amadeus.shopping.flightOffers.pricing.post(
-        JSON.stringify({
-            'data': {
-            'type': 'flight-offers-pricing',
-            'flightOffers': [response.data[0]]
-            }
-        }))})
-        .then(function(response){
-        console.log(response)})
+            .then(response=>{
+                console.log(response)
+                return response
+            })
+            .then(myData=>{
+                // console.log(myData.data[0].itineraries[0].segments[0].departure.iataCode)
+                res.render('flights/beachyShow',myData.data)
+            })
         .catch(function(responseError){
         console.log(responseError)})
 })
-
-
-
-
 
 router.get('/', (req, res)=>{
     res.render('flights/index')

@@ -12,43 +12,44 @@
 <div class="container-fluid">
 <h1>Beachy Vacation Flights</h1>
 <img src="" id="beachy-img">
-{% for data in data %}
-<ul>
-    <li>
-        One-way: {{data.oneWay}}
-    </li>
-    <li>
-        Departure:
-        <li>
-            City: {{data.itineraries[0].segments[0].departure.iataCode}}
-        </li> 
-        <li>
-            Terminal: {{data.itineraries[0].segments[0].departure.terminal}}
-        </li>
-        <li>
-            Departure Date: {{data.itineraries[0].segments[0].departure.at}}
-        </li>
-    </li>
-    <li>
-        Arrival:
-        <li>
-            City: {{data.itineraries[0].segments[0].arrival.iataCode}}
-        </li> 
-        <li>
-            Terminal: {{data.itineraries[0].segments[0].arrival.terminal}}
-        </li>
-        <li>
-            Arrival Date: {{data.itineraries[0].segments[0].arrival.at}}
-        </li>
-    </li>
+
+{% for oneData in data %}
+<div class="card">
+    <div class="card-body">
+<p>
+    City: {{data[0].itineraries[0].segments[0].departure.iataCode}}
+</p>
+
+
+
+
+    </div>
     
-   
-    <li>
-        Mexico
-    </li>
-</ul>
-{% endfor %}
+</div>
+    {% endfor %}
+
+
 </div>
 {% endblock %}
 </body>
 </html>
+
+<!-- <One-way: {{data.oneWay}
+
+        Departure:
+    
+            City: {{oneData.
+                oneWay:
+            }).itineraries[0].segments[0].departure.iataCode}} 
+    
+            Terminal: {{data.itineraries[0].segments[0].departure.terminal}}
+    
+            Departure Date: {{data.itineraries[0].segments[0].departure.at}}
+
+        Arrival:
+    
+            City: {{data.itineraries[0].segments[0].arrival.iataCode}} 
+    
+            Terminal: {{data.itineraries[0].segments[0].arrival.terminal}}
+    
+            Arrival Date: {{data.itineraries[0].segments[0].arrival.at}} -->
