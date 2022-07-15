@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beachy Vacations</title>
+    <title>Vacation Flights</title>
 </head>
 <body>
     {% layout 'layout.liquid' %}
     {% block content %}
     <div class="container-fluid">
-        <h1>Beachy Vacation Flights</h1>
+        <h1>Vacation Flights</h1>
         <!-- <img src="" id="beachy-img"> -->
     {% for myData in myData %}
         <div class="card mb-2">
@@ -51,7 +51,7 @@
                 <h6 style="color: black" class="card-title">
                     Number of Stops: {{myData.itineraries[0].segments[0].numberOfStops}}
                 </h6>
-                    <a href="/flights/vacation/{{myData.itineraries[0].segments[0].id}}" class="btn btn-info">Add Flight to Trip</a>
+                    <a href="/mine/{{myData.itineraries[0].segments[0].id}}" class="btn btn-info">Add Flight to Trip</a>
             </div>
         </div>
     {% endfor %}
@@ -59,3 +59,4 @@
 {% endblock %}
 </body>
 </html>
+

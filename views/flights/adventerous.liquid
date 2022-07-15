@@ -31,8 +31,26 @@
         Australia
     </li>
 </ul>
-<form action="/flights/adventerous" method="POST">
-<input type="text" class="form-control" placeholder="Search a city" name="citySearch">
+<form action="/flights/vacation" method="POST">
+    <label class="form-label"> Enter a city code:</label>
+    <input type="text" class="form-control" placeholder="LAX" name="city">
+    <label class="form-label"> Enter a destination code:</label>
+    <input type="text" class="form-control" placeholder="JFK" 
+    name="destination">
+    <label class="form-label"> Enter a departure date:</label>
+    <input type="text" class="form-control" placeholder="2022-11-01" 
+    name="departure">
+    <label class="form-label"> Number of adults:</label>
+    <input type="text" class="form-control" placeholder="2" 
+    name="adults">
+    <!-- <label class="form-label"> Roundtrip:</label>
+    <input type="checkbox" 
+    name="roundtrip"> -->
+    <br/>
+    <input 
+        type="submit" 
+        value="Search" 
+        class="btn btn-light mt-2">
 </form>
 </div>
 {% endblock %}

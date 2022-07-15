@@ -8,7 +8,7 @@ const amadeus = new Amadeus({
 	clientSecret: process.env.APISECRET
 })
 
-// const Flight = require('../models/flights')
+
 
 
 router.post('/vacation',(req, res) =>{
@@ -21,6 +21,7 @@ router.post('/vacation',(req, res) =>{
         const adults = req.body.adults
         console.log(adults)
 
+
         amadeus.shopping.flightOffersSearch.get({
         "originLocationCode": originLocationCode,
         "destinationLocationCode":destinationLocationCode,
@@ -31,12 +32,12 @@ router.post('/vacation',(req, res) =>{
                 console.log(response)
                 return response
             })
-            .then(res=>{
-                res.json()
-            })
             .then(myData=>{
                 // console.log(myData.data[0].itineraries[0].segments[0].departure.iataCode)
-                res.render('flights/beachyShow', {myData})
+                // const data= data[0]
+                console.log("this is", myData)
+                myData = myData.data
+                res.render('flights/vacationShow', {myData})
                 // res.render('flights/beachyShow',myData.data)
             })
         .catch(function(responseError){
@@ -66,23 +67,3 @@ router.get('/beachy', (req, res)=>{
 module.exports =router
 
 
-
-//  <One-way: {{data.oneWay}
-
-//         Departure:
-    
-//             City: {{oneData.
-//                 oneWay:
-//             }).itineraries[0].segments[0].departure.iataCode}} 
-    
-//             Terminal: {{data.itineraries[0].segments[0].departure.terminal}}
-    
-//             Departure Date: {{data.itineraries[0].segments[0].departure.at}}
-
-//         Arrival:
-    
-//             City: {{data.itineraries[0].segments[0].arrival.iataCode}} 
-    
-//             Terminal: {{data.itineraries[0].segments[0].arrival.terminal}}
-    
-//             Arrival Date: {{data.itineraries[0].segments[0].arrival.at}}
