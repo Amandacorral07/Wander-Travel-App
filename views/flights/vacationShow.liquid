@@ -10,7 +10,7 @@
     {% layout 'layout.liquid' %}
     {% block content %}
     <div class="container-fluid">
-        <h1>Vacation Flights</h1>
+        <h1> Vacation Flights</h1>
         <!-- <img src="" id="beachy-img"> -->
     {% for myData in myData %}
         <div class="card mb-2">
@@ -51,7 +51,10 @@
                 <h6 style="color: black" class="card-title">
                     Number of Stops: {{myData.itineraries[0].segments[0].numberOfStops}}
                 </h6>
-                    <a href="/mine/{{myData.itineraries[0].segments[0].id}}" class="btn btn-info">Add Flight to Trip</a>
+                <form action="/flights/vacation" method="POST">
+                    
+                </form>
+                    <a href="/trip/{{myData.itineraries[0].segments[0].id}}" class="btn btn-info">Add Flight to Trip</a>
             </div>
         </div>
     {% endfor %}

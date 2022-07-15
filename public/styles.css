@@ -37,7 +37,24 @@ a{
     transform: translateX(-50%) translateY(-50%);
 }
 
+h1{
+    text-align: center;
+}
 
+
+ul{
+    list-style-type: none;
+}
+.form-control{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+.destination-list{
+    display: inline-block;
+    padding-left: 40px;
+    padding-right: 90px;
+}
 .overlay{
     position: absolute;
     top: 0;
@@ -56,6 +73,9 @@ a{
     left: 40%
 } 
 
+span{
+    display: inline-block;
+}
 /* 
 header {
     position: relative;

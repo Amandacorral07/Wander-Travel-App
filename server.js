@@ -10,6 +10,7 @@ const methodOverride = require('method-override')
 
 const flightRoutes = require('./controller/flights_routes')
 const userRoutes = require('./controller/user_routes')
+const tripRoutes = require('./controller/trip_routes')
 
 // const commentRoutes = require('./controller/comment_routes')
 
@@ -52,6 +53,7 @@ app.use(
 // set up middleware to use route controllers
 app.use('/flights', flightRoutes)
 app.use('/users', userRoutes)
+app.use('/trip', tripRoutes)
 // app.use('/comments', commentRoutes)
 //localhost:3000
 app.get('/', (req, res) => {

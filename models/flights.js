@@ -16,7 +16,7 @@ const flightOfferSchema = new Schema ({
     nonStop: Boolean,
     category: String, 
     
-    owner: {
+    travelers: {
         type: mongoose.Types.ObjectId,//a single User ._id
         ref: 'User' // const User = model('User', userSchema)
         // the string of 'User' is how we reference a model

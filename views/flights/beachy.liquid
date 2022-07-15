@@ -6,34 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beachy Vacations</title>
 </head>
-<body>
+<body style="background-color: rgb(125, 215, 242); color: black">
     {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-fluid">
 <h1>Beachy Vacation Ideas</h1>
-<img src="" id="beachy-img">
-<ul>
-    <li>
-        Bora Bora 
-    </li>
-    <li>
-        Hawaii
-    </li>
-    <li>
-         Turks and Caicos
-    </li>
-    <li>
-        Florida
-    </li>
-    <li>
-        Mexico
-    </li>
-</ul>
-<form action="/flights/vacation" method="POST">
+<div class="container-fluid justify-content-center">
+    <img src="https://imageio.forbes.com/specials-images/imageserve/930322352/Bora-Bora-Island--French-Polynesia-/960x0.jpg?format=jpg&width=960" width="200" height="200" class="rounded float-left" alt="Bora Bora">
+    <img src="https://media.cntraveler.com/photos/5e56daf217b1dc0008f2fba6/4:3/w_2664,h_1998,c_limit/03-waileabeach-hawaii-2020-GettyImages-144924389.jpg" class="rounded float-right" width="200" height="200" alt="Hawaii">
+<img src="https://www.jetbluevacations.com/images_w/jetblue/suppliers/image_url_26117.jpg" class="rounded float-right" width="200" height="200" alt="Turks and Caicos">
+<img src="https://www.senatorrivieracancunsparesort.com/wp-content/uploads/2019/12/akumal.jpg" width="200" height="200" class="rounded float-left" alt="Mexico">
+</div>
+<div class="container-md-fluid">
+    <ul>
+        <li class="list-group-item destination-list">
+            Bora Bora 
+        </li>
+        <li class="list-group-item  destination-list">
+            Hawaii
+        </li>
+        <li class="list-group-item  destination-list">
+            Turks and Caicos
+        </li>
+        <li class="list-group-item  destination-list">
+            Mexico
+        </li>
+    </ul>
+</div>
+
+<form action="/flights/vacation" method="POST" >
     <label class="form-label"> Enter a city code:</label>
     <input type="text" class="form-control" placeholder="LAX" name="city">
     <label class="form-label"> Enter a destination code:</label>
-    <input type="text" class="form-control" placeholder="JFK" 
+    <input type="text" class="form-control" placeholder="PPT" 
     name="destination">
     <label class="form-label"> Enter a departure date:</label>
     <input type="text" class="form-control" placeholder="2022-11-01" 
@@ -48,6 +53,12 @@
     <input 
         type="submit" 
         value="Search" 
+        class="btn btn-light mt-2">
+</form>
+<form action="/flights" style ='float: left; padding: 5px;'>
+    <input 
+        type="submit" 
+        value="Back" 
         class="btn btn-light mt-2">
 </form>
 </div>

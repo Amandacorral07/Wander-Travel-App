@@ -6,33 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozy Vacations</title>
 </head>
-<body>
+<body style="background-color: rgb(24, 24, 71)">
     {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-fluid">
 <h1>Cozy Vacation Ideas</h1>
-<img src="" id="cozy-img">
-<ul>
-    <li>
-        Banff
-    </li>
-    <li>
-        Utah
-    </li>
-    <li>
-        Finland
-    </li>
-    <li>
-        Montana
-    </li>
-        Norway
-    </li>
-</ul>
-<form action="/flights/vacation" method="POST">
+<div class="container-fluid justify-content-center">
+    <img src="https://i0.wp.com/thenexttrip.xyz/wp-content/uploads/2020/02/View-of-the-Rocky-Mountains-in-Banff-The-Next-Trip-scaled.jpg" width="230" height="200" class="rounded float-left" alt="Banff">
+    <img src="https://offmetro.com/world/wp-content/uploads/2011/02/Park-Ciy-Winter--e1478904377519.jpg" class="rounded float-right" width="230" height="200" alt="Utah">
+<img src="https://www.visitfinland.com/dam/jcr:10100117-5154-4a6d-afb7-56502939f9e3/___Finland_Aurora_dome_Jeris_Antti_Pietik%C3%A4inen.12422788202013340987.jpg" class="rounded float-right" width="230" height="200" alt="Finland">
+<img src="https://blog.glaciermt.com/wp-content/uploads/2021/12/1EFAB654-3B92-4E95-8AD3-07E761EAEB4F-1.jpeg" width="230" height="200" class="rounded float-left" alt="Montana">
+</div>
+<div class="container-md-fluid">
+    <ul>
+        <li class="list-group-item destination-list">
+            Banff
+        </li>
+        <li class="list-group-item  destination-list">
+            Utah
+        </li>
+        <li class="list-group-item  destination-list">
+            Finland
+        </li>
+        <li class="list-group-item  destination-list">
+            Montana
+        </li>
+    </ul>
+</div>
+<form action="/flights/vacation" method="POST" >
     <label class="form-label"> Enter a city code:</label>
-    <input type="text" class="form-control" placeholder="LAX" name="city">
+    <input type="text" class="form-control" placeholder="LAX" name="city" width="50%">
     <label class="form-label"> Enter a destination code:</label>
-    <input type="text" class="form-control" placeholder="JFK" 
+    <input type="text" class="form-control" placeholder="HEL" width="50%"
     name="destination">
     <label class="form-label"> Enter a departure date:</label>
     <input type="text" class="form-control" placeholder="2022-11-01" 

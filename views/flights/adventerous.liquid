@@ -6,31 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventerous Vacations</title>
 </head>
-<body>
+<body style="background-color: rgb(113, 163, 116)">
     {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-fluid">
 <h1>Adventerous Vacation Ideas</h1>
-<img src="" id="adv-img">
-<ul>
-    <li>
-       Galapagos Islands
-    </li>
-    <li>
-       Africa
-    </li>
-    <li>
-       Switzerland
-    </li>
-    <li>
-        Arizona & Utah
-    </li>
-        Iceland
-    </li>
-    </li>
-        Australia
-    </li>
-</ul>
+<div class="container-fluid justify-content-center">
+    <img src="https://swinn.com/wp-content/uploads/sites/5/2018/07/antelope-canyon.jpg" width="230" height="200" class="rounded float-left" alt="Arizona">
+    <img src="https://cdn1.matadornetwork.com/blogs/1/2018/10/Amazing-touristic-alpine-village-with-famous-church-and-Staubbach-waterfall-Lauterbrunnen-Switzerland-Europe-1200x853.jpg" class="rounded float-right" width="230" height="200" alt="Switzerland">
+    <img src="https://www.aig.ie/content/dam/aig/emea/ireland/images_nextgen/cards/628x384-media-cards/africa-safari-travel-tips-628x384.jpg" class="rounded float-right" width="230" height="200" alt="Arica">
+<img src="https://i.pinimg.com/564x/a1/65/d7/a165d70dfa29b9c876ae8fe9944b172f.jpg" width="230" height="200" class="rounded float-left" alt="Iceland">
+</div>
+<div class="container-md-fluid">
+    <ul>
+        <li class="list-group-item destination-list">
+            Arica & Utah
+        </li>
+        <li class="list-group-item  destination-list">
+            Africa
+        </li>
+        <li class="list-group-item  destination-list">
+            Switzerland
+        </li>
+        <li class="list-group-item  destination-list">
+            Iceland
+        </li>
+    </ul>
+</div>
+
 <form action="/flights/vacation" method="POST">
     <label class="form-label"> Enter a city code:</label>
     <input type="text" class="form-control" placeholder="LAX" name="city">
