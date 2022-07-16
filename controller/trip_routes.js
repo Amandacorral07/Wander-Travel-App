@@ -4,6 +4,14 @@ const router = express.Router()
 
 const Flight = require('../models/flights')
 
+router.get('/new',(req, res)=>{
+    res.render('trip/new')
+})
+
+
+
+
+
 
 router.post('/:flightId', (req, res) => {
     const flightId = req.params.flightId

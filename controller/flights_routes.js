@@ -2,6 +2,8 @@ const express = require('express')
 
 const router = express.Router()
 const Amadeus = require('amadeus')
+const Flight = require('../models/flights')
+// const { response } = require('express')
 
 const amadeus = new Amadeus({
 	clientId: process.env.APIKEY,
@@ -18,6 +20,8 @@ router.post('/vacation',(req, res) =>{
         console.log(destinationLocationCode)
         const departureDate= req.body.departure
         console.log(departureDate)
+        const returnDate = req.body.return
+        console.log(returnDate)
         const adults = req.body.adults
         console.log(adults)
 
@@ -26,15 +30,29 @@ router.post('/vacation',(req, res) =>{
         "originLocationCode": originLocationCode,
         "destinationLocationCode":destinationLocationCode,
         "departureDate": departureDate,
+        "returnDate": returnDate,
         "adults": adults
         })
             .then(response=>{
                 console.log(response)
                 return response
             })
+            // .then((response)=>{
+
+            //     Flight.create({
+            //         originLocationCode: response.data[0].itineraries[0].segments[0].departure.iataCode,
+            //         destinationLocationCode:response.data[0].itineraries[0].segments[0].arrival.iataCode ,
+            //         terminal: response.data[0].itineraries[0].segments[0].arrival.terminal ,
+            //         departureDate: response.data[0].itineraries[0].segments[0].departure.at,
+            //         returnDate: response.data[0].itineraries[1].segments[0].arrival.at,
+            //         numberOfStops: response.data[0].itineraries[0].segments[0].numberOfStops,
+            //     })
+            // })
+           
             .then(myData=>{
                 // console.log(myData.data[0].itineraries[0].segments[0].departure.iataCode)
                 // const data= data[0]
+
                 console.log("this is", myData)
                 myData = myData.data
                 res.render('flights/vacationShow', {myData})

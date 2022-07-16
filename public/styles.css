@@ -65,13 +65,73 @@ ul{
     opacity: 0.5;
     z-index: 1;
 } 
- #container-signin{
+#container-signin{
     position: absolute;
     z-index: 2;
     display:flex;
     top: 20%;
     left: 40%
 } 
+
+#boardingPass{
+    width: 30%;
+    height: 30%;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#container-flights{
+    position: absolute;
+    z-index: 2;
+    display:flex;
+    top: 20%;
+    left: 40%
+} 
+
+#beachy-link{
+    position: absolute;
+    left: -1%;
+    top: 57px
+}
+#tasty-link{
+    position: absolute;
+    left: 32%;
+    top: 57px;
+}
+#cozy-link{
+    position: absolute;
+    left: 65%;
+    top: 57px;
+}
+#romantic-link{
+    position: absolute;
+    left: -1%;
+    top: 400px;
+}
+#adventerous-link{
+    position: absolute;
+    left: 51%;
+    top: 400px;
+}
+
+.index-heading-top{
+    position: absolute;
+    font-size: 50px;
+    color: black;
+    left: 40%;
+    top: 70px;
+}
+
+.index-heading-down{
+    position: absolute;
+    font-size: 50px;
+    color: black;
+    left: 40%;
+    top: 50px;
+}
 
 span{
     display: inline-block;
