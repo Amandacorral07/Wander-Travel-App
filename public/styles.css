@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(74, 74, 74);
+    background-color: black;
     color: white;
 }
 #signup-form{
@@ -41,6 +41,15 @@ h1{
     text-align: center;
 }
 
+
+/* #index-form{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 47%;
+    top: 400px;
+   
+} */
 
 ul{
     list-style-type: none;
@@ -108,16 +117,65 @@ ul{
 }
 #romantic-link{
     position: absolute;
-    left: -1%;
-    top: 400px;
+    left: 1%;
+    top: 410px;
 }
-#adventerous-link{
+#romantic-img{
     position: absolute;
-    left: 51%;
-    top: 400px;
+    left: -97%;
+    top: 410px;
 }
 
-.index-heading-top{
+#adventerous-link{
+    position: absolute;
+    left: 49%;
+    top: 410px;
+}
+#adv-img{
+    position: absolute;
+    left: 97%;
+    top: 410px; 
+}
+
+#index-blank-img{
+    position: absolute;
+    left: 37%;
+    top: 400px
+}
+#feeling{
+    color: black;
+    font-size: 40px;
+    position: absolute;
+    left: 38%;
+    top: 408px
+}
+#beachy-span, #tasty-span, #cozy-span, #romantic-span, #adv-span{
+    display: none;
+}
+
+#beachy-link:hover + #beachy-span{
+    display: block;
+    color: black;
+}
+
+#tasty-link:hover + #tasty-span{
+    display: block;
+    color: black;
+}
+
+#cozy-link:hover + #cozy-span{
+    display: block;
+    color: black;
+}
+#romantic-link:hover + #romantic-span{
+    display: block;
+    color: black;
+}
+#adventerous-link:hover + #adv-span{
+    display: block;
+    color: black;
+}
+/* .index-heading-top{
     position: absolute;
     font-size: 50px;
     color: black;
@@ -131,7 +189,7 @@ ul{
     color: black;
     left: 40%;
     top: 50px;
-}
+} */
 
 span{
     display: inline-block;
