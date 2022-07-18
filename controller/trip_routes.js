@@ -13,11 +13,13 @@ router.get('/new',(req, res)=>{
 
 
 
-router.post('/:flightId', (req, res) => {
-    const flightId = req.params.flightId
+router.post('/:id', (req, res) => {
+    console.log(req.params)
+    const flightId = req.params.id
     req.body.author = req.body.userId
-
-    Flight.find({owner:req.session.userId})
+    console.log(req.session.userId)
+    Flight.find({travelers:req.session.userId})
+    
         // after we found a fruit 
         // take that fruit and add the comment
         .then(trip=> {

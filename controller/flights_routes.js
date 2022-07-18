@@ -37,29 +37,34 @@ router.post('/vacation',(req, res) =>{
                 console.log(response)
                 return response
             })
-            // .then((response)=>{
-
-            //     Flight.create({
-            //         originLocationCode: response.data[0].itineraries[0].segments[0].departure.iataCode,
-            //         destinationLocationCode:response.data[0].itineraries[0].segments[0].arrival.iataCode ,
-            //         terminal: response.data[0].itineraries[0].segments[0].arrival.terminal ,
-            //         departureDate: response.data[0].itineraries[0].segments[0].departure.at,
-            //         returnDate: response.data[0].itineraries[1].segments[0].arrival.at,
-            //         numberOfStops: response.data[0].itineraries[0].segments[0].numberOfStops,
-            //     })
-            // })
+            .then((response)=>{
+                console.log(response.data[0].itineraries[0].segments[0].departure.iataCode)
+                Flight.create({
+                    originCity: response.data[0].itineraries[0].segments[0].departure.iataCode,
+                    destinationLocationCode:response.data[0].itineraries[0].segments[0].arrival.iataCode ,
+                    terminal: response.data[0].itineraries[0].segments[0].arrival.terminal ,
+                    departureDate: response.data[0].itineraries[0].segments[0].departure.at,
+                    // returnDate: response.data[0].itineraries[0].segments[0].arrival.at,
+                    numberOfStops: response.data[0].itineraries[0].segments[0].numberOfStops,
+                })
+                response = response.data
+               
+                res.render('flights/vacationShow', {response, originCity, destinationLocationCode})
+            })
            
-            .then(myData=>{
+            // .then(myData=>{
                 // console.log(myData.data[0].itineraries[0].segments[0].departure.iataCode)
                 // const data= data[0]
 
-                console.log("this is", myData)
-                myData = myData.data
-                res.render('flights/vacationShow', {myData})
+                // console.log("this is", myData)
+                // myData = myData.data
+                // , {myData}
+                // res.render('flights/vacationShow')
                 // res.render('flights/beachyShow',myData.data)
-            })
+            // })
         .catch(function(responseError){
         console.log(responseError)})
+
 })
 
 router.get('/', (req, res)=>{

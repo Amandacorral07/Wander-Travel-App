@@ -8,13 +8,13 @@ const { Schema, model } = mongoose
 
 // Schema is the rules for the model
 const flightOfferSchema = new Schema ({
-    originLocationCode: String, 
+    originCity: String, 
     destinationLocationCode: String,
     departureDate: String,
+    terminal: Number,
     returnDate: String,
     adults: Number,
-    nonStop: Boolean,
-    category: String, 
+    numberOfStops: Boolean, 
     
     travelers: {
         type: mongoose.Types.ObjectId,//a single User ._id
