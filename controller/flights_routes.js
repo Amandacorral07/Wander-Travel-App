@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const Amadeus = require('amadeus')
 const Flight = require('../models/flights')
+// const Flight = require('../models/flights')
 // const { response } = require('express')
 
 const amadeus = new Amadeus({
@@ -24,48 +25,44 @@ router.post('/vacation',(req, res) =>{
         console.log(returnDate)
         const adults = req.body.adults
         console.log(adults)
-
+        const currency = req.body.currency
+        console.log(currency)
+        const nonStop = req.body.nonStop 
+        
+        // = req.body.nonStop === 'on' ? true: false
+        // console.log(nonStop)
+        
 
         amadeus.shopping.flightOffersSearch.get({
         "originLocationCode": originLocationCode,
         "destinationLocationCode":destinationLocationCode,
         "departureDate": departureDate,
         "returnDate": returnDate,
-        "adults": adults
+        "adults": adults,
+        "currencyCode": currency,
+        "numberOfStops": nonStop
         })
             .then(response=>{
                 console.log(response)
                 return response
             })
-            .then((response)=>{
-                console.log(response.data[0].itineraries[0].segments[0].departure.iataCode)
-                Flight.create({
-                    originCity: response.data[0].itineraries[0].segments[0].departure.iataCode,
-                    destinationLocationCode:response.data[0].itineraries[0].segments[0].arrival.iataCode ,
-                    terminal: response.data[0].itineraries[0].segments[0].arrival.terminal ,
-                    departureDate: response.data[0].itineraries[0].segments[0].departure.at,
-                    // returnDate: response.data[0].itineraries[0].segments[0].arrival.at,
-                    numberOfStops: response.data[0].itineraries[0].segments[0].numberOfStops,
-                })
-                response = response.data
-               
-                res.render('flights/vacationShow', {response, originCity, destinationLocationCode})
-            })
-           
-            // .then(myData=>{
+
+            .then(myData=>{
                 // console.log(myData.data[0].itineraries[0].segments[0].departure.iataCode)
                 // const data= data[0]
-
-                // console.log("this is", myData)
-                // myData = myData.data
-                // , {myData}
-                // res.render('flights/vacationShow')
+                console.log("this is", myData)
+                myData = myData.data
+                
+                Flight.insertMany(myData)
+                res.render('flights/vacationShow' , {myData})
                 // res.render('flights/beachyShow',myData.data)
-            // })
+            })
         .catch(function(responseError){
         console.log(responseError)})
 
 })
+
+
 
 router.get('/', (req, res)=>{
     res.render('flights/index')

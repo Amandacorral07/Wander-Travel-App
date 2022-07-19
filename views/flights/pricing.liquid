@@ -4,29 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beachy Vacations</title>
+    <title>Vacation Flights</title>
 </head>
 <body>
     {% layout 'layout.liquid' %}
     {% block content %}
-    <div class="container-fluid">
-        <h1>My Trips</h1>
-        <!-- <img src="" id="beachy-img"> -->
-    <!-- {% for myData in myData %} -->
-        <div class="card mb-2">
+        <h1> Pricing and Confirmation of Flight</h1>
+        <div class="card mb-4">
             <div class="card-body">
                 <h5 style="color: black" class="card-title">
-
-                   Flight from {{ Flight.itineraries.segments.departure.iataCode }} to {{ Flight.itineraries.segments.arrival.iataCode }}
-                   {% comment %}Flight from {{ myData.itineraries[0].segments[0].departure.iataCode }} to {{ myData.itineraries[0].segments[0].arrival.iataCode }}
-                   {% endcomment %}
+                   Flight from {{ myData.itineraries[0].segments[0].departure.iataCode }} to {{ myData.itineraries[0].segments[0].arrival.iataCode }}
                 </h5>
                 <h6 style="color: black" class="card-title">
                     Departure
                 </h6>
                 <ul style="color: black">
                     <li style="text-decoration: none">
-                        City: {{ myData.itineraries[0].segments[0].departure.iataCode }}
+                        City: {{originCity}}
+                        {% comment %} City: {{ myData.itineraries[0].segments[0].departure.iataCode }}{% endcomment %}
                     </li>
                     <li style="text-decoration: none">
                         Terminal: {{ myData.itineraries[0].segments[0].departure.terminal }}
@@ -36,12 +31,15 @@
                     </li>
                     
                 </ul>
+                <hr style="color: black">
                 <h6 style="color: black" class="card-title">
                     Arrival
                 </h6>
                 <ul style="color: black">
                     <li style="text-decoration: none">
-                        City: {{ myData.itineraries[0].segments[0].arrival.iataCode }}
+                        City: {{destinationLocationCode}}
+                       {% comment %} City: {{ myData.itineraries[0].segments[0].arrival.iataCode }}
+                       {% endcomment%}
                     </li>
                     <li style="text-decoration: none">
                         Terminal: {{ myData.itineraries[0].segments[0].arrival.terminal }}
@@ -54,11 +52,20 @@
                 <h6 style="color: black" class="card-title">
                     Number of Stops: {{myData.itineraries[0].segments[0].numberOfStops}}
                 </h6>
-                    <a href="/flights/vacation/{{myData.itineraries[0].segments[0].id}}" class="btn btn-info">View Flight</a>
+                <h6 style="color: black" class="card-title">
+                    Price: {{myData.price[0].grandTotal}}
+                </h6>
+                
+                <form action="/trip/" method="POST">
+                    <input type="submit" value="Add Flight to My Trips" class="btn btn-info" name="id">
+
+                    {% comment %}<a href="/trip/{{myData.itineraries[0].segments[0].id}}" 
+                    class="btn btn-info">Add Flight to Trip</a> {% endcomment %}
+                </form>
             </div>
         </div>
-    <!-- {% endfor %} -->
     </div>
 {% endblock %}
+
 </body>
 </html>

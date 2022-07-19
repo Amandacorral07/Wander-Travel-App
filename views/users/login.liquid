@@ -8,9 +8,12 @@
 </head>
 <body>
     {% layout 'layout.liquid' %}
-
     {% block content %}
-    
+    <div class="container-fluid">
+        <div class="overlay"></div>
+        <iframe width="853" height="480" src="https://www.youtube.com/embed/DeELRNKBplg?autoplay=1&mute=1&showinfo=1&loop=1&playlist=DeELRNKBplg&playsinline=0&controls=0&modestbranding&rel=0"  frameborder="0" allowfullscreen id="myVideo"></iframe>
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/VMs0yEVC00A?autoplay=1&mute=1&showinfo=1&loop=1&playlist=VMs0yEVC00A&playsinline=0&controls=0&modestbranding&rel=0" title="2 Weeks In Italy : A Cinematic Travel Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="loginVideo"></iframe>
+
     <div class="container-md">
         <form action="/users/login" method="POST">
             <fieldset>
@@ -39,7 +42,7 @@
                 >
         </form>
     </div>
-    
+</div>
     {% endblock %}
     </body>
     </html>

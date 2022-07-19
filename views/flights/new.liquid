@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Trip</title>
+</head>
+<body>
+    
+    {% layout 'layout.liquid' %}
+
+{% block content %}
+<h1>New Trip</h1>
+<div class="container-sm">
+    <form action="/flights/vacation" method="POST" >
+        <label class="form-label"> Enter a city code:</label>
+        <input type="text" class="form-control" placeholder="LAX" name="city">
+        <label class="form-label"> Enter a destination code:</label>
+        <input type="text" class="form-control" placeholder="PPT" 
+        name="destination">
+        <label class="form-label"> Enter a departure date:</label>
+        <input type="text" class="form-control" placeholder="2022-11-01" 
+        name="departure">
+        <label class="form-label"> Number of adults:</label>
+        <input type="text" class="form-control" placeholder="2" 
+        name="adults">
+        <!-- <label class="form-label"> Roundtrip:</label>
+        <input type="checkbox" 
+        name="roundtrip"> -->
+        <br/>
+        <input 
+            type="submit" 
+            value="Search" 
+            class="btn btn-dark mt-2">
+    </form>
+    <form action="/flights" style ='float: left; padding: 5px;'>
+        <input 
+            type="submit" 
+            value="Back" 
+            class="btn btn-dark mt-2">
+    </form>
+</div>
+{% endblock %}
+</body>
+</html>
