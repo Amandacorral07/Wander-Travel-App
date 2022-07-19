@@ -32,12 +32,21 @@ router.post('/vacation/:id', (req, res) => {
         // const nonStop = req.body.nonStop
         // console.log(nonStop)
 
-        console.log(req.params.id)
         const flightId = req.params.id
-        req.body.author = req.body.userId
+        console.log(req.params.id)
+        req.body.travelers = req.body.userId
         console.log(req.session.userId)
 
+        Flight.findOne({id:flightId})
 
+        .then(trip =>{
+            trip.Flight.insert(req.body)
+            return doc.save()        
+
+        })
+
+
+        // Flight.find({id: flightId})
         // amadeus.shopping.flightOffersSearch.get({
         // "originLocationCode": originLocationCode,
         // "destinationLocationCode":destinationLocationCode,
@@ -66,10 +75,10 @@ router.post('/vacation/:id', (req, res) => {
         //     return response.save()
         // })
         
-        Flight.find({travelers:req.session.userId})
+        // Flight.find({travelers:req.session.userId})
         
         
-        Flight.find({flightId}).insertOne({flightId})
+        // Flight.find({flightId}).insertOne({flightId})
         
         // .toArray(function(err, result){
         //     Flight.insert(modifiedResult, function(err, result){
@@ -88,8 +97,9 @@ router.post('/vacation/:id', (req, res) => {
         //     // if we change a doc, we have to return and call .save() on the doc.
         //     return response.save()
         // })
+
         .then(res => {
-            res.redirect(`/trip/index`)
+            res.render(`/trip/index`)
         })
         .catch(function(responseError){
             console.log(responseError)})
