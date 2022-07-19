@@ -17,20 +17,6 @@ const Flight = require('../models/flights')
 
 
 router.post('/vacation/:id', (req, res) => {
-        // const originLocationCode = req.body.city
-        // console.log(originLocationCode)
-        // const destinationLocationCode= req.body.destination
-        // console.log(destinationLocationCode)
-        // const departureDate= req.body.departure
-        // console.log(departureDate)
-        // const returnDate = req.body.return
-        // console.log(returnDate)
-        // const adults = req.body.adults
-        // console.log(adults)
-        // const currency = req.body.currency
-        // console.log(currency)
-        // const nonStop = req.body.nonStop
-        // console.log(nonStop)
 
         const flightId = req.params.id
         console.log(req.params.id)
@@ -40,66 +26,15 @@ router.post('/vacation/:id', (req, res) => {
         Flight.findOne({id:flightId})
 
         .then(trip =>{
-            trip.Flight.insert(req.body)
-            return doc.save()        
+            trip.itineraries.push(req.body)
+            console.log(req.body)
+            return trip.save()        
 
         })
 
-
-        // Flight.find({id: flightId})
-        // amadeus.shopping.flightOffersSearch.get({
-        // "originLocationCode": originLocationCode,
-        // "destinationLocationCode":destinationLocationCode,
-        // "departureDate": departureDate,
-        // "returnDate": returnDate,
-        // "adults": adults,
-        // "currencyCode": currency,
-        // "numberOfStops": nonStop
-        // })
-        // .then(response=>{
-        //     console.log(response)
-        //     return response
-        // })
-
-        
-        // Flight.create({
-        //     originCity: response.data[0].itineraries[0].segments[0].departure.iataCode,
-        //     destinationLocationCode:response.data[0].itineraries[0].segments[0].arrival.iataCode ,
-        //     terminal: response.data[0].itineraries[0].segments[0].arrival.terminal ,
-        //     departureDate: response.data[0].itineraries[0].segments[0].departure.at,
-        //     returnDate: response.data[0].itineraries[0].segments[0].arrival.at,
-        //     numberOfStops: response.data[0].itineraries[0].segments[0].numberOfStops,
-        // })
-        // .then((response)=>{
-        //     console.log(response)
-        //     return response.save()
-        // })
-        
-        // Flight.find({travelers:req.session.userId})
-        
-        
-        // Flight.find({flightId}).insertOne({flightId})
-        
-        // .toArray(function(err, result){
-        //     Flight.insert(modifiedResult, function(err, result){
-        //         if(err){
-
-        //         }
-        //     })
-        // })
-       
-            // console.log({id: flightId})
-        
-        // .then(response=> {
-        //     // single fruit doc there is a field called comments
-        //     // trip.flights.push(req.params.flightId)
-
-        //     // if we change a doc, we have to return and call .save() on the doc.
-        //     return response.save()
-        // })
-
-        .then(res => {
-            res.render(`/trip/index`)
+        .then(flight => {
+            console.log(flight)
+            res.render(`trip/index`, {flight})
         })
         .catch(function(responseError){
             console.log(responseError)})

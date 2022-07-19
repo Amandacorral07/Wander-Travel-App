@@ -10,14 +10,15 @@
     {% layout 'layout.liquid' %}
     {% block content %}
     <div class="container-fluid">
-        <div class="overlay"></div>
+       {% comment %} <div class="overlay"></div>
         <iframe width="853" height="480" src="https://www.youtube.com/embed/DeELRNKBplg?autoplay=1&mute=1&showinfo=1&loop=1&playlist=DeELRNKBplg&playsinline=0&controls=0&modestbranding&rel=0"  frameborder="0" allowfullscreen id="myVideo"></iframe>
+        {% endcomment %}
+        <div class="overlay"></div>
         <iframe width="640" height="360" src="https://www.youtube.com/embed/VMs0yEVC00A?autoplay=1&mute=1&showinfo=1&loop=1&playlist=VMs0yEVC00A&playsinline=0&controls=0&modestbranding&rel=0" title="2 Weeks In Italy : A Cinematic Travel Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="loginVideo"></iframe>
-
-    <div class="container-md">
+    <div class="container-md" id="container-login">
         <form action="/users/login" method="POST">
             <fieldset>
-                <legend>Welcome Back, please log in here</legend>
+                <legend>Welcome Back</legend>
                 <label class="form-label">Username:</label>
                 <input 
                     id="signup-form"
@@ -26,7 +27,7 @@
                     name="username"
                     class="form-control"
                 >
-                <label class="form-label">Password:</label>
+                <label class="form-label mt-2">Password:</label>
                 <input 
                     id="signup-form"
                     type="password" 

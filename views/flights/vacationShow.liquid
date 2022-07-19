@@ -10,28 +10,27 @@
     {% layout 'layout.liquid' %}
     {% block content %}
         <h1> Vacation Flights</h1>
-        {% for myData in myData %}
+        {% for flight in flights %}
         <div class="card mb-4">
             <div class="card-body">
                 <h5 style="color: black" class="card-title">
-                    Flight from {{ Flight.itineraries.segments.departure.iataCode }} to {{ Flight.itineraries.segments.arrival.iataCode }}
-                    Flight from {{ myData.itineraries[0].segments[0].departure.iataCode }} to {{ myData.itineraries[0].segments[0].arrival.iataCode }}
+                    Flight from {{flight.itineraries[0].segments[0].departure.iataCode }} to {{flight.itineraries[0].segments[0].arrival.iataCode }}
                 </h5>
                 <h6 style="color: black">
-                    Flight Id: #{{myData.id}}
+                    Flight Id: #{{flight.id}}
                 </h6>
                 <h6 style="color: black" class="card-title">
                     Departure
                 </h6>
                 <ul style="color: black">
                     <li style="text-decoration: none" name="city">
-                        City: {{ myData.itineraries[0].segments[0].departure.iataCode }}
+                        City: {{flight.itineraries[0].segments[0].departure.iataCode }}
                     </li>
                     <li style="text-decoration: none" name="departure-terminal">
-                        Terminal: {{ myData.itineraries[0].segments[0].departure.terminal }}
+                        Terminal: {{flight.itineraries[0].segments[0].departure.terminal }}
                     </li>
                     <li style="text-decoration: none" name="departure">
-                        Date: {{ myData.itineraries[0].segments[0].departure.at }}
+                        Date: {{flight.itineraries[0].segments[0].departure.at }}
                     </li>
                     
                 </ul>
@@ -41,28 +40,25 @@
                 </h6>
                 <ul style="color: black">
                     <li style="text-decoration: none" name="destination">
-                        City: {{ myData.itineraries[0].segments[0].arrival.iataCode }}
+                        City: {{flight.itineraries[0].segments[0].arrival.iataCode }}
                     </li>
                     <li style="text-decoration: none" name="arrival-terminal">
-                        Terminal: {{ myData.itineraries[0].segments[0].arrival.terminal }}
+                        Terminal: {{flight.itineraries[0].segments[0].arrival.terminal }}
                     </li>
                     <li style="text-decoration: none" name="arrival">
-                        Date: {{ myData.itineraries[0].segments[0].arrival.at }}
+                        Date: {{flight.itineraries[0].segments[0].arrival.at }}
                     </li>
                     
                 </ul>
                 <h6 style="color: black" class="card-title" name="nonstop">
-                    Number of Stops: {{myData.itineraries[0].segments[0].numberOfStops}}
+                    Number of Stops: {{flight.itineraries[0].segments[0].numberOfStops}}
                 </h6>
                 <h6 style="color: black" class="card-title" name="currency">
-                    Price: ${{myData.price.grandTotal}}
+                    Price: ${{flight.price.grandTotal}}
                 </h6>
-                <h6 style="color: black" class="card-title" name="adults">
-                    Number of Adults: {{myData.fareDetailsBySegment[0].segmentId}}
-                </h6>
-                <form action="/trip/vacation/{{myData.id}}" name="id" method="POST">
+                <form action="/trip/vacation/{{flight.id}}" name="id" method="POST">
                     <input type="submit" value="Add Flight to My Trips" class="btn btn-info">
-                    {% comment %}<a href="/trip/{{myData.itineraries[0].segments[0].id}}" 
+                    {% comment %}<a href="/trip/{flight.itineraries[0].segments[0].id}}" 
                     class="btn btn-info">Add Flight to Trip</a> {% endcomment %}
                 </form>
             </div>

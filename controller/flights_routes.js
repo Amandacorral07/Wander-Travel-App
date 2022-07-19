@@ -47,14 +47,14 @@ router.post('/vacation',(req, res) =>{
                 return response
             })
 
-            .then(myData=>{
+            .then(flights=>{
                 // console.log(myData.data[0].itineraries[0].segments[0].departure.iataCode)
                 // const data= data[0]
-                console.log("this is", myData)
-                myData = myData.data
+                console.log("this is", flights)
+                flights = flights.data
                 
-                Flight.insertMany(myData)
-                res.render('flights/vacationShow' , {myData})
+                Flight.insertMany(flights)
+                res.render('flights/vacationShow' , {flights})
                 // res.render('flights/beachyShow',myData.data)
             })
         .catch(function(responseError){
