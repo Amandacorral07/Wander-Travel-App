@@ -32,7 +32,7 @@ const flightOfferSchema = new Schema ({
     travelers: {
         type: mongoose.Types.ObjectId,//a single User ._id
         ref: 'User',
-        unique: true // const User = model('User', userSchema)
+        // unique: true // const User = model('User', userSchema)
         // the string of 'User' is how we reference a model
     },
 
