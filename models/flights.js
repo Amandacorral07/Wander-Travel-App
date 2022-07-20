@@ -14,12 +14,12 @@ const flightOfferSchema = new Schema ({
             departure:{
                 iataCode: String,
                 terminal: String,
-                at: String,
+                atDep: String,
             },
             arrival: {
                 iataCode: String,
                 terminal: String,
-                at: String,
+                atArr: String,
             }, 
         }]
     }],
@@ -27,7 +27,7 @@ const flightOfferSchema = new Schema ({
         currency: String,
         total: String
     },
-    id: String,
+    flightId: String,
     
     travelers: {
         type: mongoose.Types.ObjectId,//a single User ._id

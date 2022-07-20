@@ -15,14 +15,11 @@
         <div class="card mb-2">
             <div class="card-body">
                 <h4 style="color: rgb(31, 184, 234)" class="card-title">
-                Flight from {{ flight.itineraries[0].segments[0].departure.iataCode }} to {{ flight.itineraries[0].segments[1].arrival.iataCode }}
+                Flight from {{ flight.iataCodeDep }} to {{ flight.iataCodeArr}}
         
                 {% comment %}Flight from {{ flight.itineraries[0].segments[0].departure.iataCode }} to {{ flight.itineraries[0].segments[0].arrival.iataCode }}
                 {% endcomment %}
                 </h4>
-                <h6 style="color: black">
-                    Flight Id: #{{flight.id}}
-                </h6>
                 <h5 style="color: rgb(50, 170, 40)" class="card-title">
                 Departure Flight
                 </h5>

@@ -6,7 +6,7 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-
+const bodyParser = require('body-parser')
 
 const flightRoutes = require('./controller/flights_routes')
 const userRoutes = require('./controller/user_routes')
@@ -31,6 +31,9 @@ app.use(express.urlencoded({ extended: false }))
 // to serve files from public statically
 app.use(express.static('public'))
 // bring in our session middleware 
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json())
 
 const session = require('express-session')
 const MongoStore= require('connect-mongo')

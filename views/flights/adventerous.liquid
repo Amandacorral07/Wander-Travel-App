@@ -11,70 +11,32 @@
 {% block content %}
 <div class="container-fluid">
 <h1>Adventerous Vacation Ideas</h1>
-<div class="container-fluid justify-content-center">
+<div class="container-fluid" style="margin-left: 15%">
     <img src="https://swinn.com/wp-content/uploads/sites/5/2018/07/antelope-canyon.jpg" width="230" height="200" class="rounded float-left" alt="Arizona">
     <img src="https://cdn1.matadornetwork.com/blogs/1/2018/10/Amazing-touristic-alpine-village-with-famous-church-and-Staubbach-waterfall-Lauterbrunnen-Switzerland-Europe-1200x853.jpg" class="rounded float-right" width="230" height="200" alt="Switzerland">
     <img src="https://www.aig.ie/content/dam/aig/emea/ireland/images_nextgen/cards/628x384-media-cards/africa-safari-travel-tips-628x384.jpg" class="rounded float-right" width="230" height="200" alt="Arica">
 <img src="https://i.pinimg.com/564x/a1/65/d7/a165d70dfa29b9c876ae8fe9944b172f.jpg" width="230" height="200" class="rounded float-left" alt="Iceland">
 </div>
-<div class="container-md-fluid">
-    <ul>
-        <li class="list-group-item destination-list">
-            Arizona & Utah
-        </li>
-        <li class="list-group-item  destination-list">
-            Africa
-        </li>
-        <li class="list-group-item  destination-list">
-            Switzerland
-        </li>
-        <li class="list-group-item  destination-list">
-            Iceland
-        </li>
-    </ul>
-</div>
 
 
-<form action="/flights/vacation" method="POST">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            City Origin
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Los Angeles</a>
-            <a class="dropdown-item" href="#">New York</a>
-            <a class="dropdown-item" href="#">Chicago</a>
-            <a class="dropdown-item" href="#">Dallas</a>
-        </div>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">City Origin
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Los Angeles</a></li>
-              <li><a href="#">New York</a></li>
-              <li><a href="#">Chicago</a></li>
-              <li><a href="#">Dallas</a></li>
-            </ul>
-          </div>
-    <!-- <label class="form-label"> Enter a city code:</label>
-    <input type="text" class="form-control" placeholder="LAX" name="city"> -->
-    <label class="form-label"> Enter a destination code:</label>
+
+<form action="/flights/vacation" method="POST" style ="margin-left: 33%">
+    <label class="form-label mt-2"> Enter a destination code:</label>
     <input type="text" class="form-control" placeholder="JFK" 
     name="destination">
-    <label class="form-label"> Enter a departure date:</label>
+    <label class="form-label mt-2"> Enter a departure date:</label>
     <input type="text" class="form-control" placeholder="2022-11-01" 
     name="departure">
-    <label class="form-label"> Enter a return date:</label>
+    <label class="form-label mt-2"> Enter a return date:</label>
     <input type="text" class="form-control" placeholder="2022-11-15" 
     name="return">
-    <label class="form-label"> Number of adults:</label>
+    <label class="form-label mt-2"> Number of adults:</label>
     <input type="text" class="form-control" placeholder="2" 
     name="adults">
-    <label class="form-label"> Currency:</label>
+    <label class="form-label mt-2"> Currency:</label>
     <input type="text" class="form-control" placeholder="USD" 
     name="currency">
-    <label class="form-label"> Nonstop:</label>
+    <label class="form-label mt-2"> Nonstop:</label>
     <input type="checkbox" name="nonstop">
     <!-- <label class="form-label"> Roundtrip:</label>
     <input type="checkbox" 
@@ -83,9 +45,9 @@
     <input 
         type="submit" 
         value="Search" 
-        class="btn btn-successs mt-2">
+        class="btn btn-success mt-2">
 </form>
-<form action="/flights" style ='float: left; padding: 5px;'>
+<form action="/flights" style ="margin-left: 33%">
     <input 
         type="submit" 
         value="Back" 

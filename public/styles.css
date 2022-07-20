@@ -173,11 +173,6 @@ ul{
     color: black;
 }
 
-/* #wander-logo{
-    position: absolute;
-    left: 2%
-} */
-
 #mountain-logo{
     position:absolute;
     left: 80px;
@@ -206,6 +201,7 @@ ul{
 span{
     display: inline-block;
 }
+
 /* 
 header {
     position: relative;

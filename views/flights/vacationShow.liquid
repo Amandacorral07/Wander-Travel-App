@@ -11,26 +11,39 @@
     {% block content %}
         <h1> Vacation Flights</h1>
         {% for flight in flights %}
+        <form action="/trip/vacation/save?_method=POST" name="flightId" method="POST">
         <div class="card mb-4">
             <div class="card-body">
                 <h5 style="color: black" class="card-title">
-                    Flight from {{flight.itineraries[0].segments[0].departure.iataCode }} to {{flight.itineraries[0].segments[0].arrival.iataCode }}
+                    Flight from {{flight.itineraries[0].segments[0].departure.iataCode }} to {{flight.itineraries[0].segments[1].arrival.iataCode }}
                 </h5>
                 <h6 style="color: black">
-                    Flight Id: #{{flight.id}}
+                    Flight Id: #{{flight.flightId}}
                 </h6>
                 <h6 style="color: black" class="card-title">
                     Departure
                 </h6>
                 <ul style="color: black">
-                    <li style="text-decoration: none" name="city">
+
+                    <input name="iataCodeDep" style="display:none" value={{flight.itineraries[0].segments[0].departure.iataCode}}></input> 
+                    <input name="iataCodeDepart" style="display:none" value={{flight.itineraries[0].segments[1].departure.iataCode}}></input> 
+                    <input name="iataCodeDeparture" style="display:none" value={{flight.itineraries[1].segments[0].departure.iataCode}}></input> 
+                    <li style="text-decoration: none">
                         City: {{flight.itineraries[0].segments[0].departure.iataCode }}
                     </li>
-                    <li style="text-decoration: none" name="departure-terminal">
+
+                    <input name="terminalDep" style="display:none" value={{flight.itineraries[0].segments[0].departure.terminal }}></input> 
+                    <input name="terminalDepart" style="display:none" value={{flight.itineraries[0].segments[1].departure.terminal }}></input> 
+                    <input name="terminalDeparture" style="display:none" value={{flight.itineraries[1].segments[0].departure.terminal }}></input> 
+                    <li style="text-decoration: none">
                         Terminal: {{flight.itineraries[0].segments[0].departure.terminal }}
                     </li>
-                    <li style="text-decoration: none" name="departure">
-                        Date: {{flight.itineraries[0].segments[0].departure.at }}
+
+                    <input name="atDep" style="display:none" value={{flight.itineraries[0].segments[0].departure.at }}></input> 
+                    <input name="atDepart" style="display:none" value={{flight.itineraries[0].segments[1].departure.at }}></input> 
+                    <input name="atDeparture" style="display:none" value={{flight.itineraries[1].segments[0].departure.at }}></input> 
+                    <li style="text-decoration: none">
+                        Date: {{flight.itineraries[0].segments[0].departure.at | date: "%b %d, %y %H:%M"}}
                     </li>
                     
                 </ul>
@@ -39,43 +52,50 @@
                     Arrival
                 </h6>
                 <ul style="color: black">
-                    <li style="text-decoration: none" name="destination">
+
+                    <input name="iataCodeArr" style="display:none" value={{flight.itineraries[0].segments[0].arrival.iataCode }}></input> 
+                    <input name="iataCodeArrival" style="display:none" value={{flight.itineraries[0].segments[1].arrival.iataCode }}></input> 
+                    <input name="iataCodeArrivals" style="display:none" value={{flight.itineraries[1].segments[0].arrival.iataCode }}></input> 
+                    <li style="text-decoration: none">
                         City: {{flight.itineraries[0].segments[0].arrival.iataCode }}
                     </li>
-                    <li style="text-decoration: none" name="arrival-terminal">
+
+                    <input name="terminalArr" style="display:none" value={{flight.itineraries[0].segments[0].arrival.terminal }}></input> 
+                    <input name="terminalArrival" style="display:none" value={{flight.itineraries[0].segments[1].arrival.terminal }}></input> 
+                    <input name="terminalArrivals" style="display:none" value={{flight.itineraries[1].segments[0].arrival.terminal }}></input> 
+                    <li style="text-decoration: none" >
                         Terminal: {{flight.itineraries[0].segments[0].arrival.terminal }}
                     </li>
-                    <li style="text-decoration: none" name="arrival">
-                        Date: {{flight.itineraries[0].segments[0].arrival.at }}
+
+                    <input name="atArr" style="display:none" value={{flight.itineraries[0].segments[0].arrival.at }}></input> 
+                    <input name="atArrival" style="display:none" value={{flight.itineraries[0].segments[1].arrival.at }}></input> 
+                    <input name="atArrivals" style="display:none" value={{flight.itineraries[0].segments[1].arrival.at }}></input> 
+                    <li style="text-decoration: none">
+                        Date: {{flight.itineraries[0].segments[0].arrival.at | date: "%b %d, %y %H:%M"}}
                     </li>
                     
                 </ul>
                 <h6 style="color: black" class="card-title" name="nonstop">
                     Number of Stops: {{flight.itineraries[0].segments[0].numberOfStops}}
                 </h6>
-                <h6 style="color: black" class="card-title" name="currency">
+
+                <input name="total" style="display:none" value={{flight.price.grandTotal}}></input> 
+                <h6 style="color: black" class="card-title">
                     Price: ${{flight.price.grandTotal}}
                 </h6>
-                <form action="/trip/vacation/{{flight.id}}" name="id" method="POST">
-                    <input type="submit" value="Add Flight to My Trips" class="btn btn-info">
-                    {% comment %}<a href="/trip/{flight.itineraries[0].segments[0].id}}" 
-                    class="btn btn-info">Add Flight to Trip</a> {% endcomment %}
-                </form>
-            </div>
-        </div>
-    
 
+                
+                    <input type="submit" value="Add Flight to My Trips" class="btn btn-info">
+
+                </div>
+            </div>
+            
+        </form>
+      
     {% endfor %}
     </div>
 {% endblock %}
 
 </body>
-<script>
-    const button = document.querySelector('.btn')
-
-button.addEventListener('click', () => {
-    button.classList.toggle('liked')
-})
-</script>
 </html>
 

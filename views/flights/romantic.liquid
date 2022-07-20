@@ -11,48 +11,32 @@
 {% block content %}
 <div class="container-fluid">
 <h1>Romantic Vacation Ideas</h1>
-<div class="container-fluid justify-content-center">
-    <img src="https://www.remax.eu/uploads/agent-1/Greece%20(Optimized)-5e580fa45d9f1.jpg" width="220" height="200" class="rounded float-left" alt="Greece">
-    <img src="https://www.mustgo.com/wp-content/uploads/2018/04/par_320a.jpg" class="rounded float-right" width="220" height="200" alt="Paris">
-<img src="https://www.cityofnapa.org/ImageRepository/Document?documentID=9628" class="rounded float-right" width="220" height="200" alt="California">
-<img src="https://d1bv4heaa2n05k.cloudfront.net/user-images/1535025032242/shutterstock-1142567063_main_1535025093424.jpeg" width="220" height="200" class="rounded float-left" alt="Italy">
-</div>
-<div class="container-md-fluid">
-    <ul>
-        <li class="list-group-item destination-list">
-            Greece
-        </li>
-        <li class="list-group-item  destination-list">
-            Paris
-        </li>
-        <li class="list-group-item  destination-list">
-             California
-        </li>
-        <li class="list-group-item  destination-list">
-           Italy
-        </li>
-    </ul>
+<div class="container-fluid justify-content-center" style="margin-left: 15%">
+    <img src="https://www.remax.eu/uploads/agent-1/Greece%20(Optimized)-5e580fa45d9f1.jpg" width="230" height="200" class="rounded float-left" alt="Greece">
+    <img src="https://www.mustgo.com/wp-content/uploads/2018/04/par_320a.jpg" class="rounded float-right" width="230" height="200" alt="Paris">
+<img src="https://www.cityofnapa.org/ImageRepository/Document?documentID=9628" class="rounded float-right" width="230" height="200" alt="California">
+<img src="https://d1bv4heaa2n05k.cloudfront.net/user-images/1535025032242/shutterstock-1142567063_main_1535025093424.jpeg" width="230" height="200" class="rounded float-left" alt="Italy">
 </div>
 
-<form action="/flights/vacation" method="POST">
-    <label class="form-label"> Enter a city code:</label>
+<form action="/flights/vacation" method="POST" style="margin-left: 33%">
+    <label class="form-label mt-2"> Enter a city code:</label>
     <input type="text" class="form-control" placeholder="LAX" name="city">
-    <label class="form-label"> Enter a destination code:</label>
+    <label class="form-label mt-2"> Enter a destination code:</label>
     <input type="text" class="form-control" placeholder="ATH" 
     name="destination">
-    <label class="form-label"> Enter a departure date:</label>
+    <label class="form-label mt-2"> Enter a departure date:</label>
     <input type="text" class="form-control" placeholder="2022-11-01" 
     name="departure">
-    <label class="form-label"> Enter a return date:</label>
+    <label class="form-label mt-2"> Enter a return date:</label>
     <input type="text" class="form-control" placeholder="2022-11-15" 
     name="return">
-    <label class="form-label"> Number of adults:</label>
+    <label class="form-label mt-2"> Number of adults:</label>
     <input type="text" class="form-control" placeholder="2" 
     name="adults">
-    <label class="form-label"> Currency:</label>
+    <label class="form-label mt-2"> Currency:</label>
     <input type="text" class="form-control" placeholder="USD" 
     name="currency">
-    <label class="form-label"> Nonstop:</label>
+    <label class="form-label mt-2"> Nonstop:</label>
     <input type="checkbox" name="nonstop">
     <!-- <label class="form-label"> Roundtrip:</label>
     <input type="checkbox" 
@@ -63,7 +47,7 @@
         value="Search" 
         class="btn btn-danger mt-2">
 </form>
-<form action="/flights" style ='float: left; padding: 5px;'>
+<form action="/flights" style="margin-left: 33%">
     <input 
         type="submit" 
         value="Back" 

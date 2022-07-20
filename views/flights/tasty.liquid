@@ -11,48 +11,32 @@
 {% block content %}
 <div class="container-fluid">
 <h1>Tasty Vacation Ideas</h1>
-<div class="container-fluid justify-content-center">
+<div class="container-fluid justify-content-center" style="margin-left: 15%">
     <img src="https://images.squarespace-cdn.com/content/v1/5bca2c44e66669782ad17f48/1551823526825-YL89TEFG9KEM8KC73940/DSC00072.jpg?format=1500w" width="230" height="200" class="rounded float-left" alt="Italy">
     <img src="https://www.thespruceeats.com/thmb/dsMpNNkRg7xlB2CIAqxu7jbYiyY=/3275x2456/smart/filters:no_upscale()/GettyImages-Ridofranz-1053855542-60b89644efd2470fbfb6475b175064df.jpg" class="rounded float-right" width="230" height="200" alt="Japan">
     <img src="https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1098,format=auto/sites/default/files/styles/1200x800/public/d8/images/methode/2019/04/28/61efb454-672b-11e9-a2c3-042d2f2c8874_image_hires_143424.jpg?itok=8Y6XoI6b&v=1556433284" class="rounded float-right" width="230" height="200" alt="Thailand">
 <img src="https://d3mvlb3hz2g78.cloudfront.net/wp-content/uploads/2012/09/thumb_720_450_shutterstock_10469815.jpg" width="230" height="200" class="rounded float-left" alt="Hong Kong">
 </div>
-<div class="container-md-fluid">
-    <ul>
-        <li class="list-group-item destination-list">
-            Italy
-        </li>
-        <li class="list-group-item  destination-list">
-            Thailand
-        </li>
-        <li class="list-group-item  destination-list">
-            Japan
-        </li>
-        <li class="list-group-item  destination-list">
-            Hong Kong
-        </li>
-    </ul>
-</div>
-
-<form action="/flights/vacation" method="POST">
-    <label class="form-label"> Enter a city code:</label>
+<div class="container-fluid form">
+<form action="/flights/vacation" method="POST" style="margin-left: 8%">
+    <label class="form-label mt-2"> Enter a city code:</label>
     <input type="text" class="form-control" placeholder="LAX" name="city">
-    <label class="form-label"> Enter a destination code:</label>
+    <label class="form-label mt-2"> Enter a destination code:</label>
     <input type="text" class="form-control" placeholder="FCO" 
     name="destination">
-    <label class="form-label"> Enter a departure date:</label>
+    <label class="form-label mt-2"> Enter a departure date:</label>
     <input type="text" class="form-control" placeholder="2022-11-01" 
     name="departure">
-    <label class="form-label"> Enter a return date:</label>
+    <label class="form-label mt-2"> Enter a return date:</label>
     <input type="text" class="form-control" placeholder="2022-11-15" 
     name="return">
-    <label class="form-label"> Number of adults:</label>
+    <label class="form-label mt-2"> Number of adults:</label>
     <input type="text" class="form-control" placeholder="2" 
     name="adults">
-    <label class="form-label"> Currency:</label>
+    <label class="form-label mt-2"> Currency:</label>
     <input type="text" class="form-control" placeholder="USD" 
     name="currency">
-    <label class="form-label"> Nonstop:</label>
+    <label class="form-label mt-2"> Nonstop:</label>
     <input type="checkbox" name="nonstop">
     <br/>
     <input 
@@ -60,12 +44,13 @@
         value="Search" 
         class="btn btn-secondary mt-2">
 </form>
-<form action="/flights" style ='float: left; padding: 5px;'>
+<form action="/flights" style="margin-left: 8%">
     <input 
         type="submit" 
         value="Back" 
         class="btn btn-secondary mt-2">
 </form>
+</div>
 </div>
 {% endblock %}
 </body>

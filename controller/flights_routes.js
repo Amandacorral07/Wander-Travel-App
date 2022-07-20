@@ -53,7 +53,7 @@ router.post('/vacation',(req, res) =>{
                 console.log("this is", flights)
                 flights = flights.data
                 
-                Flight.insertMany(flights)
+                // Flight.insertMany(flights)
                 res.render('flights/vacationShow' , {flights})
                 // res.render('flights/beachyShow',myData.data)
             })

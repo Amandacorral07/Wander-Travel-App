@@ -16,33 +16,93 @@ const Flight = require('../models/flights')
 // })
 
 
-router.post('/vacation/:id', (req, res) => {
+router.post('/vacation/save', (req, res) => {
 
+        console.log("this is",req.body)
         const flightId = req.params.id
-        console.log(req.params.id)
+        // console.log(req.params.id)
         req.body.travelers = req.body.userId
-        console.log(req.session.userId)
+        // console.log(req.session.userId)
 
-        Flight.findOne({id:flightId})
+        const userId = req.session.userId
+        console.log(userId)
+        const flight = {
+            itineraries: [{
+                segments: [{
+                    departure:{
+                        iataCode: req.body.iataCodeDep,
+                        terminal: req.body.terminalDep,
+                        at: req.body.atDep,
+                    },
+                    arrival: {
+                        iataCode: req.body.iataCodeArr,
+                        terminal: req.body.terminalArr,
+                        at: req.body.atArr,
+                    }, 
+                }],
+                segments: [{
+                    departure:{
+                        iataCode: req.body.iataCodeDepart,
+                        terminal: req.body.terminalDepart,
+                        at: req.body.atDepart,
+                    },
+                    arrival: {
+                        iataCode: req.body.iataCodeArrival,
+                        terminal: req.body.terminalArrival,
+                        at: req.body.atArrival,
+                    }, 
+                }],
+                segments: [{
+                    departure:{
+                        iataCode: req.body.iataCodeDeparture,
+                        terminal: req.body.terminalDeparture,
+                        at: req.body.atDeparture,
+                    },
+                    arrival: {
+                        iataCode: req.body.iataCodeArrivals,
+                        terminal: req.body.terminalArrivals,
+                        at: req.body.atArrivals,
+                    }, 
+                }]
+            }],
+            price:{
+                total: req.body.total
+            },
+        }
+        console.log(flight)
+        return Flight.create(
+            flight
+        )
 
-        .then(trip =>{
-            trip.itineraries.push(req.body)
-            console.log(req.body)
-            return trip.save()        
-
+        .then(trip =>{       
+            res.render('trip/index', {userId, flight} )
         })
 
-        .then(flight => {
-            console.log(flight)
-            res.render(`trip/index`, {flight})
-        })
         .catch(function(responseError){
             console.log(responseError)})
 })
 
 
 
+router.delete('/delete/:id', (req, res)=>{
+    const flightId = req.params.id
 
+    Flight.find({id: flightId})
+
+    .then(trip =>{
+
+        flightId.remove()
+
+        return trip.save()
+    })
+
+    .then(trip =>{
+        res.redirect('/flights/vacationShow', )
+    })
+    .catch(err=>{
+        res.send(err)
+    })
+})
 
 
 
