@@ -11,14 +11,14 @@
     {% block content %}
         <h1> Vacation Flights</h1>
         {% for flight in flights %}
-        <form action="/trip/vacation/save?_method=POST" name="flightId" method="POST">
+        <form action="/trip/vacation/{{flight.id}}" name="flightId" method="POST">
         <div class="card mb-4">
             <div class="card-body">
                 <h5 style="color: black" class="card-title">
                     Flight from {{flight.itineraries[0].segments[0].departure.iataCode }} to {{flight.itineraries[0].segments[1].arrival.iataCode }}
                 </h5>
                 <h6 style="color: black">
-                    Flight Id: #{{flight.flightId}}
+                    Flight Id: #{{flight.id}}
                 </h6>
                 <h6 style="color: black" class="card-title">
                     Departure

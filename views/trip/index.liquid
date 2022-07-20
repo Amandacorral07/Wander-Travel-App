@@ -15,7 +15,7 @@
         <div class="card mb-2">
             <div class="card-body">
                 <h4 style="color: rgb(31, 184, 234)" class="card-title">
-                Flight from {{ flight.iataCodeDep }} to {{ flight.iataCodeArr}}
+                Flight from {{ flight.itineraries[0].segments[0].departure.iataCode}} to {{  flight.itineraries[0].segments[0].arrival.iataCode }}
         
                 {% comment %}Flight from {{ flight.itineraries[0].segments[0].departure.iataCode }} to {{ flight.itineraries[0].segments[0].arrival.iataCode }}
                 {% endcomment %}
@@ -35,7 +35,7 @@
                             Terminal: {{ flight.itineraries[0].segments[0].departure.terminal }}
                         </li>
                         <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[0].segments[0].departure.at }}
+                            Date: {{flight.itineraries[0].segments[0].departure.at | date: "%b %d, %y %H:%M"}}
                         </li>
                         
                     </ul>
@@ -52,7 +52,7 @@
                             Terminal: {{ flight.itineraries[0].segments[0].arrival.terminal }}
                         </li>
                         <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[0].segments[0].arrival.at }}
+                            Date: {{ flight.itineraries[0].segments[0].arrival.at | date: "%b %d, %y %H:%M" }}
                         </li>
                         
                     </ul>
@@ -70,7 +70,7 @@
                             Terminal: {{ flight.itineraries[0].segments[1].departure.terminal }}
                         </li>
                         <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[0].segments[1].departure.at }}
+                            Date: {{ flight.itineraries[0].segments[1].departure.at | date: "%b %d, %y %H:%M" }}
                         </li>
                         
                     </ul>
@@ -87,7 +87,7 @@
                             Terminal: {{ flight.itineraries[0].segments[1].arrival.terminal }}
                         </li>
                         <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[0].segments[1].arrival.at }}
+                            Date: {{ flight.itineraries[0].segments[0].arrival.at | date: "%b %d, %y %H:%M" }}
                         </li>
                         
                     </ul>
@@ -108,7 +108,7 @@
                             Terminal: {{ flight.itineraries[1].segments[0].departure.terminal }}
                         </li>
                         <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[1].segments[0].departure.at }}
+                            Date: {{ flight.itineraries[1].segments[0].departure.at | date: "%b %d, %y %H:%M" }}
                         </li>
                     </ul>
                 </div>
@@ -124,7 +124,7 @@
                             Terminal: {{ flight.itineraries[1].segments[0].arrival.terminal }}
                         </li>
                         <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[1].segments[0].arrival.at }}
+                            Date: {{ flight.itineraries[1].segments[0].arrival.at | date: "%b %d, %y %H:%M"}}
                         </li>
                         
                     </ul>
