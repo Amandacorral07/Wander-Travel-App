@@ -43,8 +43,8 @@ app.use(
 	session({
 		secret: process.env.SECRET,
 		store: MongoStore.create({
-			// mongoUrl: process.env.MONGODB_URI
-			mongoUrl: process.env.DATABASE_URI
+			mongoUrl: process.env.MONGODB_URI
+			// mongoUrl: process.env.DATABASE_URI
 		}),
 		saveUninitialized: true,
 		resave: false
@@ -61,17 +61,17 @@ app.use('/trip', tripRoutes)
 // app.use('/comments', commentRoutes)
 //localhost:3000
 app.get('/', (req, res) => {
-	res.redirect('/flights')
+	res.redirect('/flights/show')
 	// res.send('your server is running, better go catch it')
 })
 
 ////////////////////////////////////////////
 // Server Listener
 ////////////////////////////////////////////
-const PORT = process.env.PORT
+// const PORT = process.env.PORT
 
-// app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 3000)
 
-app.listen(PORT, () => {
-	console.log(`app is listening on port: ${PORT}`)
-})
+// app.listen(PORT, () => {
+// 	console.log(`app is listening on port: ${PORT}`)
+// })

@@ -15,7 +15,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h5 style="color: black" class="card-title">
-                    Flight from {{flight.itineraries[0].segments[0].departure.iataCode }} to {{flight.itineraries[0].segments[1].arrival.iataCode }}
+                    Flight from {{flight.itineraries[0].segments[0].departure.iataCode }} to {{flight.itineraries[0].segments[0].arrival.iataCode }}
                 </h5>
                 <h6 style="color: black">
                     Flight Id: #{{flight.id}}
@@ -25,9 +25,10 @@
                 </h6>
                 <ul style="color: black">
 
-                    <input name="iataCodeDep" style="display:none" value={{flight.itineraries[0].segments[0].departure.iataCode}}></input> 
+                    {% comment %}<input name="iataCodeDep" style="display:none" value={{flight.itineraries[0].segments[0].departure.iataCode}}></input> 
                     <input name="iataCodeDepart" style="display:none" value={{flight.itineraries[0].segments[1].departure.iataCode}}></input> 
-                    <input name="iataCodeDeparture" style="display:none" value={{flight.itineraries[1].segments[0].departure.iataCode}}></input> 
+                    <input name="iataCodeDeparture" style="display:none" value={{flight.itineraries[1].segments[0].departure.iataCode}}></input>{% endcomment %}
+
                     <li style="text-decoration: none">
                         City: {{flight.itineraries[0].segments[0].departure.iataCode }}
                     </li>
@@ -86,11 +87,12 @@
 
                 
                     <input type="submit" value="Add Flight to My Trips" class="btn btn-info">
-
+                </form>
+                
                 </div>
             </div>
             
-        </form>
+        
       
     {% endfor %}
     </div>

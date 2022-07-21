@@ -1,9 +1,11 @@
 body{
     background-color: black;
     color: white;
+    font-family: 'Merriweather', serif;
+    font-family: 'Roboto', sans-serif;
 }
 #signup-form{
-   width: 100%;
+    width: 100%;
 }
 
 .nav-link {
@@ -19,10 +21,13 @@ a{
     text-decoration: none;
 }
 
+.navbar{
+    z-index: 2;
+}
 .beachy{
     color: aliceblue;
 }
-#myVideo, #loginVideo{
+#myVideo, #loginVideo, #mainVideo{
     position: absolute;
     top: 58%;
     left: 50%;
@@ -37,12 +42,44 @@ a{
     transform: translateX(-50%) translateY(-50%);
 }
 
+.container-fieldset{
+    margin-left: 8%;
+    margin-top: 5%;
+    z-index: 1;
+    background-color: white;
+    color: black;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 80%;
+}
+
+#main-page{
+    z-index: 2;
+}
 h1{
+    padding: 10px 0;
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    font-size: 40px;
     text-align: center;
 }
 
 ul{
     list-style-type: none;
+}
+/* 
+#mountain-logo{
+    /* position: absolute;
+    left: 82px; */
+/* } */
+.back{
+    position: absolute;
+    left: 20%;
+    top: -10%
+    /* right: 50px;
+    bottom: 20px */
 }
 .form-control{
     display: flex;
@@ -75,14 +112,9 @@ ul{
     position: absolute;
     z-index: 2;
     display:flex;
-    top: 30%;
+    top: 32%;
     left: 40%
 }
-/* #navbar{
-    position: absolute;
-    z-index: 2;
-    display: flex;
-} */
 
 #container-flights{
     position: absolute;
@@ -146,37 +178,37 @@ ul{
     left: 38%;
     top: 408px
 }
-#beachy-span, #tasty-span, #cozy-span, #romantic-span, #adv-span{
-    display: none;
+#beachy-div, #tasty-div, #cozy-div, #romantic-div, #adv-div{
+    position: absolute;
+    left: 55%;
+    top: 408px;
+    color: black;
+    display: none
 }
 
-#beachy-link:hover + #beachy-span{
-    display: block;
-    color: black;
-}
-
-#tasty-link:hover + #tasty-span{
-    display: block;
-    color: black;
-}
-
-#cozy-link:hover + #cozy-span{
-    display: block;
-    color: black;
-}
-#romantic-link:hover + #romantic-span{
-    display: block;
-    color: black;
-}
-#adventerous-link:hover + #adv-span{
+#beachy-link:hover + #beachy-div{
     display: block;
     color: black;
 }
 
-#mountain-logo{
-    position:absolute;
-    left: 80px;
+#tasty-link:hover + #tasty-div{
+    display: block;
+    color: black;
 }
+
+#cozy-link:hover + #cozy-div{
+    display: block;
+    color: black;
+}
+#romantic-link:hover + #romantic-div{
+    display: block;
+    color: black;
+}
+#adventerous-link:hover + #adv-div{
+    display: block;
+    color: black;
+}
+
 
 .index-heading-top{
     display:none;
@@ -198,7 +230,7 @@ ul{
     top: 50px;
 } 
 
-span{
+div{
     display: inline-block;
 }
 

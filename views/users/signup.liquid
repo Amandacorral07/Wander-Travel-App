@@ -17,11 +17,29 @@
     <form action="/users/signup" method="POST">
         <fieldset>
             <legend>New Wanderer</legend>
+            {%comment%}
+            <label class="form-label">First Name:</label>
+            <input 
+                id="signup-form"
+                type="text" 
+                placeholder="First Name" 
+                name="name"
+                class="form-control"
+            >
+            <label class="form-label">Last Name:</label>
+            <input 
+                id="signup-form"
+                type="text" 
+                placeholder="Last Name" 
+                name="lastName"
+                class="form-control"
+            >
+            {%endcomment%}
             <label class="form-label">Username:</label>
             <input 
                 id="signup-form"
                 type="text" 
-                placeholder="username" 
+                placeholder="Username" 
                 name="username"
                 class="form-control"
             >
@@ -29,7 +47,7 @@
             <input 
                 id="signup-form"
                 type="password" 
-                placeholder="password" 
+                placeholder="Password" 
                 name="password"
                 class="form-control"
             >

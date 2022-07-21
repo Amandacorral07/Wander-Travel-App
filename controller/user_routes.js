@@ -79,7 +79,7 @@ router.post('/login', async (req, res)=>{
     console.log('this is the session req.session')
 
     // first we find the user
-    User.findOne({ username })
+    User.findOne({ username }) 
     .then(async (user)=>{
     // we check if the user exists
   // if they do, we'll compare the passw ords and makre sure it's correct
@@ -93,9 +93,17 @@ router.post('/login', async (req, res)=>{
             req.session.username= username
             req.session.loggedIn = true
             req.session.userId = user._id
+            req.session.name = user.name
+            req.session.lastName = user.lastName
+            req.session.profilePic = user.profilePic
+            req.session.favoriteColor = user.favoriteColor
+
+            console.log("This is the req.session.username", req.session.username)
+            // console.log(user)
+
             // redirect to the '/fruits' page
             console.log('this is the session after login', req.session)
-            res.redirect('/flights')
+            res.redirect('/flights/index')
         } else {
             // for now just send some json error
             res.json({error: 'username or password incorrect'})
@@ -130,6 +138,53 @@ router.get('/logout', (req, res)=>{
     })
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.get('/profile/:id', async (req, res, next)=>{
+    try{
+        const currentUser = await User.findById(req.params.id)
+
+        
+        const context = {
+            currentUser: currentUser,
+            name: User.name, 
+            lastName: User.lastName,
+            profilePic: User.profilePic,
+            favoriteColor: User.favoriteColor,
+            userId: User._id
+        }
+        res.render('users/profile', context)
+        console.log("This is the", context)
+    }
+
+    catch(error){
+        console.log(error)
+        req.error= error
+        return next()
+    }
+
+
+    // User.findById(req.params.id)
+
+    // res.render()
+})
 
 
 
