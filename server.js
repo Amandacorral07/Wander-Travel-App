@@ -61,7 +61,7 @@ app.use('/trip', tripRoutes)
 // app.use('/comments', commentRoutes)
 //localhost:3000
 app.get('/', (req, res) => {
-	res.redirect('/flights/show')
+	res.redirect('/flights')
 	// res.send('your server is running, better go catch it')
 })
 
