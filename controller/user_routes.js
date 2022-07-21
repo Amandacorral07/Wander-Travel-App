@@ -93,6 +93,13 @@ router.post('/login', async (req, res)=>{
             req.session.username= username
             req.session.loggedIn = true
             req.session.userId = user._id
+            req.session.name = user.name
+            req.session.lastName = user.lastName
+            req.session.profilePic = user.profilePic
+            req.session.favoriteColor = user.favoriteColor
+
+            console.log(user)
+
             // redirect to the '/fruits' page
             console.log('this is the session after login', req.session)
             res.redirect('/flights')
@@ -130,6 +137,32 @@ router.get('/logout', (req, res)=>{
     })
 })
 
+router.get('/profile/:id', (req, res, next)=>{
+    try{
+        const currentUser = User.findById(req.params.id)
+
+        const context = {
+            currentUser: currentUser,
+            name: User.name, 
+            lastName: User.lastName,
+            profilePic: User.profilePic,
+            favoriteColor: User.favoriteColor,
+            userId: User._id
+        }
+        res.render('users/profile', context)
+    }
+
+    catch(error){
+        console.log(error)
+        req.error= error
+        return next()
+    }
+
+
+    // User.findById(req.params.id)
+
+    // res.render()
+})
 
 
 

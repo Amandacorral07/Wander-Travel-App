@@ -44,6 +44,18 @@ h1{
 ul{
     list-style-type: none;
 }
+/* 
+#mountain-logo{
+    /* position: absolute;
+    left: 82px; */
+/* } */
+.back{
+    position: absolute;
+    left: 20%;
+    top: -10%
+    /* right: 50px;
+    bottom: 20px */
+}
 .form-control{
     display: flex;
     justify-content: center;
@@ -146,37 +158,37 @@ ul{
     left: 38%;
     top: 408px
 }
-#beachy-span, #tasty-span, #cozy-span, #romantic-span, #adv-span{
-    display: none;
+#beachy-div, #tasty-div, #cozy-div, #romantic-div, #adv-div{
+    position: absolute;
+    left: 55%;
+    top: 408px;
+    color: black;
+    display: none
 }
 
-#beachy-link:hover + #beachy-span{
-    display: block;
-    color: black;
-}
-
-#tasty-link:hover + #tasty-span{
-    display: block;
-    color: black;
-}
-
-#cozy-link:hover + #cozy-span{
-    display: block;
-    color: black;
-}
-#romantic-link:hover + #romantic-span{
-    display: block;
-    color: black;
-}
-#adventerous-link:hover + #adv-span{
+#beachy-link:hover + #beachy-div{
     display: block;
     color: black;
 }
 
-#mountain-logo{
-    position:absolute;
-    left: 80px;
+#tasty-link:hover + #tasty-div{
+    display: block;
+    color: black;
 }
+
+#cozy-link:hover + #cozy-div{
+    display: block;
+    color: black;
+}
+#romantic-link:hover + #romantic-div{
+    display: block;
+    color: black;
+}
+#adventerous-link:hover + #adv-div{
+    display: block;
+    color: black;
+}
+
 
 .index-heading-top{
     display:none;
@@ -198,7 +210,7 @@ ul{
     top: 50px;
 } 
 
-span{
+div{
     display: inline-block;
 }
 

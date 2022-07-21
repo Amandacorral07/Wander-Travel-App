@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    {% layout 'layout.liquid' %}
+    {% block content %}
+
+        <h1> {{currentUser.name}}'s Profile</h1>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 style="color: black" class="card-title">
+                    {{currentUser.name}} {{currentUser.lastName}}
+                </h5>
+                <img src="{{currentUser.profilePic}}" alt="Profile Pic"/>
+                
+                <h6 style="color: black">
+                    My favorite color is {{currentUser.favoriteColor}}
+                </h6>
+
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+</body>
+</html>
+

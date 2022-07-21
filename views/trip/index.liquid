@@ -19,6 +19,7 @@
         
                 {% comment %}Flight from {{ flight.itineraries[0].segments[0].departure.iataCode }} to {{ flight.itineraries[0].segments[0].arrival.iataCode }}
                 {% endcomment %}
+
                 </h4>
                 <h5 style="color: rgb(50, 170, 40)" class="card-title">
                 Departure Flight
@@ -169,6 +170,9 @@
                     <a href="/flights/vacation/{{flight.itineraries[0].segments[0].id}}" class="btn btn-info">Book Flight</a>
             </div>
         </div>
+        <form action="/flights/destroy">
+            <input type="submit" value="Delete this Flight" class="btn btn-danger">
+        </form>
    {% comment %} {% endfor %} {% endcomment %}
     </div>
 {% endblock %}

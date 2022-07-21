@@ -17,14 +17,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <form action="/trip/vacation/:id" method="POST">
+            <!-- <form action="/trip/vacation/:id" method="POST">
             <a href="/trip/vacation/:id">My Trips</a>
-            </form>
+            </form> -->
             <!-- <a href="/flights/new" class="nav-link text-light">New Flight</a> -->
             <a href="/flights" class="nav-link text-light">Search Flights</a>
             <a href="/users/signup" class="nav-link text-light">Sign Up</a>
             <a href="/users/login" class="nav-link text-light">Login</a>
             <a href="/users/logout" class="nav-link text-light">Logout</a>
+            <a href="/users/profile/{{User._id}}" class="nav-link text-light">{{User.name}}'s Profile</a>
         </div>
     </div>
     </nav>

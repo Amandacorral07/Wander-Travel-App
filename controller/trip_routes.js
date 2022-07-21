@@ -18,27 +18,39 @@ const Flight = require('../models/flights')
 
 router.post('/vacation/:id', (req, res) => {
 
-        const flightId = req.params._id
-        console.log(req.params.id)
-        req.body.travelers = req.body.userId
-        console.log(req.session.userId)
+        req.body.travelers = req.session.userId
+        
+        // const flightId = req.params._id
+        // console.log(req.params.id)
+        // req.body.travelers = req.session.userId
+        // console.log(req.session.userId)
 
-        Flight.findOne({id:flightId})
+        // const userId = req.session.userId
 
-        .then(trip =>{
-            trip.itineraries.push(req.body)
-            console.log(req.body)
-            return trip.save()        
+        // Flight.findOne({userId})
 
-        })
+        // .then(trip =>{
+        //     trip.itineraries.push(req.body)
+        //     console.log(req.body)
+        //     return trip.save()        
 
-        .then(flight => {
-            console.log(flight)
-            res.render(`trip/index`, {flight})
-        })
-        .catch(function(responseError){
-            console.log(responseError)})
+        // })
+
+        // .then(flight => {
+        //     console.log(flight)
+        //     res.render(`trip/index`, {flight})
+        // })
+        // .catch(function(responseError){
+        //     console.log(responseError)})
 })
+
+
+
+
+
+
+
+
 
 
 
