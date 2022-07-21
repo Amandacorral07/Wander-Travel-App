@@ -127,7 +127,6 @@
                         <li style="text-decoration: none">
                             Date: {{ flight.itineraries[1].segments[0].arrival.at | date: "%b %d, %y %H:%M"}}
                         </li>
-                        
                     </ul>
                     </div>
                     <hr style="color: black">
@@ -168,7 +167,7 @@
                     Price: ${{flight.price.total}}
                 </h5>
                     <!-- <a href="/flights/vacation/{{flight.itineraries[0].segments[0].id}}" class="btn btn-info">Book Flight</a> -->
-                    <form action="/flights/destroy/{{flight.id}}?_method=DELETE" method="POST">
+                    <form action="/flights/destroy/{{flight._id}}?_method=DELETE" method="POST">
                         <input type="submit" value="Delete this Flight COMING SOON" class="btn btn-danger">
                     </form>
                 </div>

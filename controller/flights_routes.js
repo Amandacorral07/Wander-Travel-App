@@ -42,18 +42,25 @@ router.post('/vacation',(req, res) =>{
         "currencyCode": currency,
         "numberOfStops": nonStop
         })
-            .then(response=>{
-                console.log("This is the response", response)
-                return response
-            })
+            // .then(response=>{
+            //     return response
+            // })
 
-            .then(flights=>{
+            .then(response=>{
                 
-                console.log("this is the flights", flights)
-                flights = flights.data
+                console.log("this is the flights", response)
+                const flights = response.data
                 
                 Flight.insertMany(flights)
-                res.render('flights/vacationShow' , {flights})
+                .then(flights=>{
+                    console.log("================Created flights", flights )
+                    res.render('flights/vacationShow' , {flights})
+
+                })
+
+                .catch(err=>{
+                    console.log(err)
+                })
                 
             })
         .catch(function(responseError){
@@ -61,22 +68,22 @@ router.post('/vacation',(req, res) =>{
 
     })
 
-    router.delete('/flights/destroy/:id', (req,res) => {
+    router.delete('/destroy/:id', (req,res) => {
 
         console.log('hitts REMOVE');
     
         let flightId = req.params.id
         let userInfo = req.session.username
     
-        const filter = { id : flightId }
+        // const filter = { id : flightId }
     
     
-    Flight.deleteOne(filter, function (err) {
+    Flight.findByIdAndDelete(flightId, function (err) {
         if (err) return handleError(err);
     });
     
     
-        res.redirect('/trip/index')
+        res.redirect('/flights/vacationShow')
     })
 
 

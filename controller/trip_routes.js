@@ -30,25 +30,29 @@ router.post('/vacation/:id', async (req, res) => {
 
 
         const flightId = req.params.id
-        console.log(req.params.id)
+        console.log("This is the req.params.id", req.params.id)
+        console.log('This is the flightId', flightId )
         req.body.travelers = req.session.userId
-        console.log("This is" , req.session.userId)
+        console.log("This is userID" , req.session.userId)
 
         const userId = req.session.userId
 
-        Flight.findOne({userId})
+        console.log("this req.body", req.body)
+        Flight.findById(flightId)
 
-        .then(trip =>{
-            trip.itineraries.push(req.body)
+        .then(flight =>{
+            console.log("this is the flight info", flight)
+            flight.itineraries.push(req.body)
             console.log(req.body)
-            return trip.save()        
-
+            flight.save()  
+            console.log("this is the flight", flight )  
+            res.render('trip/index', {flight})    
         })
 
-        .then(flight => {
-            console.log(flight)
-            res.render(`trip/index`, {flight})
-        })
+        // .then(flight => {
+        //     console.log(flight)
+        //     res.render(`trip/index`, {flight})
+        // })
         .catch(function(responseError){
             console.log(responseError)})
 })
