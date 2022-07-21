@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    {% layout 'layout.liquid' %}
+    
+    {% block content %}
+    <div class="container-fluid" id="signin-box">
+        <div class="overlay"></div>
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/VMs0yEVC00A?autoplay=1&mute=1&showinfo=1&loop=1&playlist=VMs0yEVC00A&playsinline=0&controls=0&modestbranding&rel=0" title="2 Weeks In Italy : A Cinematic Travel Film" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="mainVideo"></iframe>
+<div class="container-fluid" id="container-signin">
+   
+        <fieldset class="container-fieldset rounded p-3" style="text-align: center">
+            <h1>Welcome Wanderer</h1>
+            <h2>Let's Explore!</h2>
+            <a class="btn btn-dark mt-3" href="/users/signup" role="button">Sign Up</a>
+            <a class="btn btn-dark mt-3" href="/users/login" role="button">Login</a>
+            {%comment%}<input 
+            type="submit" 
+            value="Sign Up" 
+            name="signup"
+            class="btn btn-dark mt-3"
+            >
+            <input 
+            type="submit" 
+            value="/" 
+            name="login"
+            class="btn btn-dark mt-3"
+            >{%endcomment%}
+        </fieldset>
+   
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

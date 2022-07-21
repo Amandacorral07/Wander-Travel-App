@@ -43,13 +43,13 @@ router.post('/vacation',(req, res) =>{
         "numberOfStops": nonStop
         })
             .then(response=>{
-                console.log(response)
+                console.log("This is the response", response)
                 return response
             })
 
             .then(flights=>{
                 
-                console.log("this is", flights)
+                console.log("this is the flights", flights)
                 flights = flights.data
                 
                 Flight.insertMany(flights)
@@ -59,12 +59,36 @@ router.post('/vacation',(req, res) =>{
         .catch(function(responseError){
         console.log(responseError)})
 
-})
+    })
+
+    router.delete('/flights/destroy/:id', (req,res) => {
+
+        console.log('hitts REMOVE');
+    
+        let flightId = req.params.id
+        let userInfo = req.session.username
+    
+        const filter = { id : flightId }
+    
+    
+    Flight.deleteOne(filter, function (err) {
+        if (err) return handleError(err);
+    });
+    
+    
+        res.redirect('/trip/index')
+    })
 
 
 
-router.get('/', (req, res)=>{
+
+
+
+router.get('/index', (req, res)=>{
     res.render('flights/index')
+})
+router.get('/', (req, res)=>{
+    res.render('flights/show')
 })
 router.get('/beachy', (req, res)=>{
     res.render('flights/beachy')

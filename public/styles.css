@@ -1,9 +1,11 @@
 body{
     background-color: black;
     color: white;
+    font-family: 'Merriweather', serif;
+    font-family: 'Roboto', sans-serif;
 }
 #signup-form{
-   width: 100%;
+    width: 100%;
 }
 
 .nav-link {
@@ -19,10 +21,13 @@ a{
     text-decoration: none;
 }
 
+.navbar{
+    z-index: 2;
+}
 .beachy{
     color: aliceblue;
 }
-#myVideo, #loginVideo{
+#myVideo, #loginVideo, #mainVideo{
     position: absolute;
     top: 58%;
     left: 50%;
@@ -37,7 +42,27 @@ a{
     transform: translateX(-50%) translateY(-50%);
 }
 
+.container-fieldset{
+    margin-left: 8%;
+    margin-top: 5%;
+    z-index: 1;
+    background-color: white;
+    color: black;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 80%;
+}
+
+#main-page{
+    z-index: 2;
+}
 h1{
+    padding: 10px 0;
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -87,14 +112,9 @@ ul{
     position: absolute;
     z-index: 2;
     display:flex;
-    top: 30%;
+    top: 32%;
     left: 40%
 }
-/* #navbar{
-    position: absolute;
-    z-index: 2;
-    display: flex;
-} */
 
 #container-flights{
     position: absolute;

@@ -16,11 +16,11 @@
             <div class="card-body">
                 <h4 style="color: rgb(31, 184, 234)" class="card-title">
                 Flight from {{ flight.itineraries[0].segments[0].departure.iataCode}} to {{  flight.itineraries[0].segments[0].arrival.iataCode }}
-        
-                {% comment %}Flight from {{ flight.itineraries[0].segments[0].departure.iataCode }} to {{ flight.itineraries[0].segments[0].arrival.iataCode }}
-                {% endcomment %}
 
                 </h4>
+                <h6 style="color: black">
+                    Flight Id: #{{flight.id}}
+                </h6>
                 <h5 style="color: rgb(50, 170, 40)" class="card-title">
                 Departure Flight
                 </h5>
@@ -61,7 +61,7 @@
                 <hr style="color: black">
                 <div class="container-trips">
                     <h6 style="color: black" class="card-title">
-                        Departure
+                        Second Departure if Applicable:
                     </h6>
                     <ul style="color: black">
                         <li style="text-decoration: none">
@@ -78,7 +78,7 @@
                 </div>
                 <div class="container-trips arrival-trips">
                     <h6 style="color: black" class="card-title">
-                        Arrival
+                        Second Arrival if Applicable:
                     </h6>
                     <ul style="color: black">
                         <li style="text-decoration: none">
@@ -133,7 +133,7 @@
                     <hr style="color: black">
                     <div class="container-trips">
                     <h6 style="color: black" class="card-title">
-                        Departure
+                        Second Departure if Applicable:
                     </h6>
                     <ul style="color: black">
                         <li style="text-decoration: none">
@@ -149,7 +149,7 @@
                 </div>
                 <div class="container-trips arrival-trips">
                     <h6 style="color: black" class="card-title">
-                        Arrival
+                        Second Arrival is Applicable:
                     </h6>
                     <ul style="color: black">
                         <li style="text-decoration: none">
@@ -167,12 +167,12 @@
                 <h5 style="color: black" class="card-title" name="currency">
                     Price: ${{flight.price.total}}
                 </h5>
-                    <a href="/flights/vacation/{{flight.itineraries[0].segments[0].id}}" class="btn btn-info">Book Flight</a>
-            </div>
+                    <!-- <a href="/flights/vacation/{{flight.itineraries[0].segments[0].id}}" class="btn btn-info">Book Flight</a> -->
+                    <form action="/flights/destroy/{{flight.id}}?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete this Flight COMING SOON" class="btn btn-danger">
+                    </form>
+                </div>
         </div>
-        <form action="/flights/destroy">
-            <input type="submit" value="Delete this Flight" class="btn btn-danger">
-        </form>
    {% comment %} {% endfor %} {% endcomment %}
     </div>
 {% endblock %}

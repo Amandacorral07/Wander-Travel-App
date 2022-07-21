@@ -8,18 +8,20 @@ const { Schema, model } = mongoose
 
 // Schema is the rules for the model
 const flightOfferSchema = new Schema ({
-    
+
+    id: String,
+
     itineraries: [{
         segments: [{
             departure:{
                 iataCode: String,
                 terminal: String,
-                atDep: String,
+                at: String,
             },
             arrival: {
                 iataCode: String,
                 terminal: String,
-                atArr: String,
+                at: String,
             }, 
         }]
     }],
@@ -27,11 +29,12 @@ const flightOfferSchema = new Schema ({
         currency: String,
         total: String
     },
-    flightId: String,
+
     
     travelers: {
-        type: mongoose.Types.ObjectId,//a single User ._id
-        ref: 'User',
+        type: String,
+        // type: mongoose.Types.ObjectId,//a single User ._id
+        // ref: 'User',
         // unique: true // const User = model('User', userSchema)
         // the string of 'User' is how we reference a model
     },
