@@ -39,87 +39,92 @@ User stories: (`As a user...`)
     - delete/remove ALL vacations
     - return a success of some kind
 
+# API Instructions:
 API planning to use: https://developers.amadeus.com/
     
+API docs: https://github.com/amadeus4dev/amadeus-node
+
+Dependencies installed (npm i): 
+    -"amadeus": "^6.0.0",
+    -"bcryptjs": "^2.4.3",
+    -"connect-mongo": "^4.6.0",
+    -"dotenv": "^16.0.1",
+    -"express": "^4.18.1",
+    -"express-session": "^1.17.3",
+    -"liquid-express-views": "^1.0.8",
+    -"method-override": "^3.0.0",
+    -"mongoose": "^6.4.4",
+    -"morgan": "^1.10.0"
+
+Included in the .env: 
+    -API KEY 
+    -API SECRET
+    -DATABASE_URI
+    -PORT running on
 
 
-Schema: (model)
--Mood
-    -Title - string
-    -body - string
-    -author - string
-    -flight number - number - default value of 0 
-    -Scheduled Flight - boolean - default value false
-    -owner: {
-        type: Schema.Types.ObjectId,//a single User ._id
-        ref: 'User' // const User = model('User', userSchema)
-        // the string of 'User' is how we reference a model
-    },
-    -comments: [] 
-
+# Schema (Model): 
 -User 
     -username: {
-        type: String, 
-        required: true,
-        unique: true,
+        -type: String, 
+        -required: true,
+        -unique: true,
     }, 
     -password:{
-        type: String, 
-        required: true
+        -type: String, 
+        -required: true
     }
 
 -Trip 
-    -Title - String
-    -BookingDate - String
-    -BookingNumber - String
-    -Provider - String
-    -Description - String
-    -Price- []
-    -Start - []
-    -End - []
-    -Air- []
+    -Title: String
+    -BookingDate: String
+    -BookingNumber: String
+    -Provider: String
+    -Description: String
+    -Price: []
+    -Start:[]
+    -End:[]
+    -Air:[]
 
 -Price 
-    -Currency - String
-    -Total - String
-    -Base - String
-    -TotalTaxes - String
+    -Currency: String
+    -Total: String
 
 -Start/ End
-    -localDateTime - String
-    -name - String
-    -iataCode - String
+    -localDateTime: String
+    -name: String
+    -iataCode: String
 
 -Air 
-    -confirmationNumber - String
-    -departureAirportLocation - []
-    -arrivalAirportLocation - []
-    -departure - []
-    -arrival - []
-    -aircraft - []
+    -confirmationNumber: String
+    -departureAirportLocation: []
+    -arrivalAirportLocation: []
+    -departure: []
+    -arrival: []
+    -aircraft: []
     -seats
 
--DepartureAirportLocation / ArrivalAirportLocation
-    - description - String
-    - name - String
+-DepartureAirportLocation /ArrivalAirportLocation
+    -description: String
+    -name: String
    
 
 -Departure 
-    -description - String
-    -iataCode - String
-    -terminal - String
-    -checkInEndTime - String
-    -localDateTime - String
+    -description: String
+    -iataCode: String
+    -terminal: String
+    -checkInEndTime: String
+    -localDateTime: String
 
 - Arrival
-    -description - String
-    -iataCode - String
-    -terminal - String
-    -localDateTime - String
+    -description: String
+    -iataCode: String
+    -terminal: String
+    -localDateTime: String
 
 -Seats
-    - number - String
-    - cabin - String
+    -number: String
+    -cabin: String
 
 
 
