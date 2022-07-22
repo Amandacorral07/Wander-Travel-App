@@ -4,9 +4,9 @@ Node.js, Liquid-Express-Views, Express, CSS, MongoDb, .env, Bootstrap, and Mongo
 # User Story
 User stories: (`As a user...`)
 - User login
-    -query for a single username
-    -query for a single password
-    -return user to index page 
+    - query for a single username
+    - query for a single password
+    - return user to index page 
 - View all Vacation Moods
     - query all moods in collection - find()
     - return all moods
@@ -64,57 +64,57 @@ API docs: https://github.com/amadeus4dev/amadeus-node
 
 # Schema (Model): 
 - User 
-    -username: {
-        -type: String, 
-        -required: true,
-        -unique: true,
+    - username: {
+        - type: String, 
+        - required: true,
+        - unique: true,
     }, 
-    -password:{
-        -type: String, 
-        -required: true
+    - password:{
+        - type: String, 
+        - required: true
     }
 - Trip 
-    -Title: String
-    -BookingDate: String
-    -BookingNumber: String
-    -Provider: String
-    -Description: String
-    -Price: []
-    -Start:[]
-    -End:[]
-    -Air:[]
+    - Title: String
+    - BookingDate: String
+    - BookingNumber: String
+    - Provider: String
+    - Description: String
+    - Price: []
+    - Start:[]
+    - End:[]
+    - Air:[]
 - Price 
-    -Currency: String
-    -Total: String
+    - Currency: String
+    - Total: String
 - Start/ End
-    -localDateTime: String
-    -name: String
-    -iataCode: String
+    - localDateTime: String
+    - name: String
+    - iataCode: String
 - Air 
-    -confirmationNumber: String
-    -departureAirportLocation: []
-    -arrivalAirportLocation: []
-    -departure: []
-    -arrival: []
-    -aircraft: []
-    -seats
+    - confirmationNumber: String
+    - departureAirportLocation: []
+    - arrivalAirportLocation: []
+    - departure: []
+    - arrival: []
+    - aircraft: []
+    - seats
 - DepartureAirportLocation /ArrivalAirportLocation
-    -description: String
-    -name: String
+    - description: String
+    - name: String
 - Departure 
-    -description: String
-    -iataCode: String
-    -terminal: String
-    -checkInEndTime: String
-    -localDateTime: String
+    - description: String
+    - iataCode: String
+    - terminal: String
+    - checkInEndTime: String
+    - localDateTime: String
 - Arrival
-    -description: String
-    -iataCode: String
-    -terminal: String
-    -localDateTime: String
+    - description: String
+    - iataCode: String
+    - terminal: String
+    - localDateTime: String
 - Seats
-    -number: String
-    -cabin: String
+    - number: String
+    - cabin: String
 
 
 # Stretch Goals 
