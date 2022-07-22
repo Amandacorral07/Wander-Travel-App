@@ -81,9 +81,7 @@ router.post('/vacation',(req, res) =>{
     Flight.findByIdAndDelete(flightId, function (err) {
         if (err) return handleError(err);
     });
-    
-    
-        res.redirect('/flights/vacationShow')
+        res.redirect('/flights/vacation')
     })
 
 

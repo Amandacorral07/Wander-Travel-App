@@ -57,6 +57,9 @@ router.post('/vacation/:id', async (req, res) => {
             console.log(responseError)})
 })
 
+router.get('/show', (req, res)=>{
+    res.render('trip/show')
+    })
 
 
 router.get('/vacation/:id', async (req,res) => {

@@ -69,6 +69,14 @@ h1{
 ul{
     list-style-type: none;
 }
+.card{
+    margin-bottom: 30px;
+}
+
+/* #flight-show-card{
+    max-width: 40%;
+    max-height: 40%;
+} */
 /* 
 #mountain-logo{
     /* position: absolute;
@@ -101,6 +109,9 @@ ul{
     opacity: 0.5;
     z-index: 1;
 } 
+#container-fluid{
+    margin-left: 10%;
+}
 #container-signin{
     position: absolute;
     z-index: 2;
