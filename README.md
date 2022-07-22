@@ -3,11 +3,11 @@ Node.js, Liquid-Express-Views, Express, CSS, MongoDb, .env, Bootstrap, and Mongo
 
 # User Story
 User stories: (`As a user...`)
--User login
+- User login
     -query for a single username
     -query for a single password
     -return user to index page 
--View all Vacation Moods
+- View all Vacation Moods
     - query all moods in collection - find()
     - return all moods
 - View single vacation mood
@@ -44,7 +44,7 @@ API planning to use: https://developers.amadeus.com/
     
 API docs: https://github.com/amadeus4dev/amadeus-node
 
-Dependencies installed (npm i): 
+- Dependencies installed (npm i): 
     -"amadeus": "^6.0.0",
     -"bcryptjs": "^2.4.3",
     -"connect-mongo": "^4.6.0",
@@ -55,8 +55,7 @@ Dependencies installed (npm i):
     -"method-override": "^3.0.0",
     -"mongoose": "^6.4.4",
     -"morgan": "^1.10.0"
-
-Included in the .env: 
+- Included in the .env: 
     -API KEY 
     -API SECRET
     -DATABASE_URI
@@ -64,7 +63,7 @@ Included in the .env:
 
 
 # Schema (Model): 
--User 
+- User 
     -username: {
         -type: String, 
         -required: true,
@@ -74,8 +73,7 @@ Included in the .env:
         -type: String, 
         -required: true
     }
-
--Trip 
+- Trip 
     -Title: String
     -BookingDate: String
     -BookingNumber: String
@@ -85,17 +83,14 @@ Included in the .env:
     -Start:[]
     -End:[]
     -Air:[]
-
--Price 
+- Price 
     -Currency: String
     -Total: String
-
--Start/ End
+- Start/ End
     -localDateTime: String
     -name: String
     -iataCode: String
-
--Air 
+- Air 
     -confirmationNumber: String
     -departureAirportLocation: []
     -arrivalAirportLocation: []
@@ -103,30 +98,23 @@ Included in the .env:
     -arrival: []
     -aircraft: []
     -seats
-
--DepartureAirportLocation /ArrivalAirportLocation
+- DepartureAirportLocation /ArrivalAirportLocation
     -description: String
     -name: String
-   
-
--Departure 
+- Departure 
     -description: String
     -iataCode: String
     -terminal: String
     -checkInEndTime: String
     -localDateTime: String
-
 - Arrival
     -description: String
     -iataCode: String
     -terminal: String
     -localDateTime: String
-
--Seats
+- Seats
     -number: String
     -cabin: String
-
-
 
 
 # Stretch Goals 
