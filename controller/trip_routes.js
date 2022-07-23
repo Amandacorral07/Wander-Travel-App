@@ -57,12 +57,29 @@ router.post('/vacation/:id', async (req, res) => {
             console.log(responseError)})
 })
 
-router.get('/show', (req, res)=>{
-    res.render('trip/show')
+router.get('/show/:id', (req, res)=>{
+    const flightId = req.params.id
+    console.log("This is the req.params.id", req.params.id)
+        console.log('This is the flightId', flightId )
+        req.body.travelers = req.session.userId
+        console.log("This is userID" , req.session.userId)
+    Flight.findById(flightId)
+    .then(flight=>{
+        console.log("This is the flight info", flight)
+        res.render('trip/show', {flight})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
     })
 
+router.get('/index', (req, res)=>{
+    res.render('trip/index')
+})
 
-router.get('/vacation/:id', async (req,res) => {
+
+
+router.get('/show/:id', async (req,res) => {
     let flightId = req.params.id
     let userInfo = req.session.username
 

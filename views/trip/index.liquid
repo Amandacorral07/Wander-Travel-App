@@ -12,164 +12,21 @@
     <div class="container-fluid">
         <h1>My Trips</h1>
    {% comment %}{% for flight in flights %}{% endcomment %}
-        <div class="card mb-2">
-            <div class="card-body">
-                <h4 style="color: rgb(31, 184, 234)" class="card-title">
-                Flight from {{ flight.itineraries[0].segments[0].departure.iataCode}} to {{  flight.itineraries[0].segments[0].arrival.iataCode }}
-
-                </h4>
-                <h6 style="color: black">
-                    Flight Id: #{{flight.id}}
-                </h6>
-                <h5 style="color: rgb(50, 170, 40)" class="card-title">
-                Departure Flight
-                </h5>
-                <div class="container-trips">
-                    <h6 style="color: black" class="card-title">
-                        Departure
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h4 style="color: rgb(31, 184, 234)" class="card-title">
+                    Flight from {{ flight.itineraries[0].segments[0].departure.iataCode}} to {{  flight.itineraries[0].segments[0].arrival.iataCode }}
+                    </h4>
+                    <h6 style="color: black">
+                        Flight Id: #{{flight.id}}
                     </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[0].segments[0].departure.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[0].segments[0].departure.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{flight.itineraries[0].segments[0].departure.at | date: "%b %d, %y %H:%M"}}
-                        </li>
-                        
-                    </ul>
+                    <a class="btn btn-dark mt-3" href="/trip/show/{{flight._id}}" role="button">Select Flight</a>
                 </div>
-                <div class="container-trips arrival-trips">
-                    <h6 style="color: black" class="card-title">
-                        Arrival
-                    </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[0].segments[0].arrival.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[0].segments[0].arrival.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[0].segments[0].arrival.at | date: "%b %d, %y %H:%M" }}
-                        </li>
-                        
-                    </ul>
-                </div>
-                <hr style="color: black">
-                <div class="container-trips">
-                    <h6 style="color: black" class="card-title">
-                        Second Departure if Applicable:
-                    </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[0].segments[1].departure.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[0].segments[1].departure.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[0].segments[1].departure.at | date: "%b %d, %y %H:%M" }}
-                        </li>
-                        
-                    </ul>
-                </div>
-                <div class="container-trips arrival-trips">
-                    <h6 style="color: black" class="card-title">
-                        Second Arrival if Applicable:
-                    </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[0].segments[1].arrival.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[0].segments[1].arrival.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[0].segments[0].arrival.at | date: "%b %d, %y %H:%M" }}
-                        </li>
-                        
-                    </ul>
-                </div>
-                <hr style="color: black">
-                <div class="container-trips">
-                    <h5 style="color: rgb(236, 10, 10)" class="card-title">
-                        Return Flight
-                    </h5>
-                    <h6 style="color: black" class="card-title">
-                        Departure
-                    </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[1].segments[0].departure.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[1].segments[0].departure.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[1].segments[0].departure.at | date: "%b %d, %y %H:%M" }}
-                        </li>
-                    </ul>
-                </div>
-                <div class="container-trips arrival-trips">
-                    <h6 style="color: black" class="card-title">
-                        Arrival
-                    </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[1].segments[0].arrival.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[1].segments[0].arrival.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[1].segments[0].arrival.at | date: "%b %d, %y %H:%M"}}
-                        </li>
-                    </ul>
-                    </div>
-                    <hr style="color: black">
-                    <div class="container-trips">
-                    <h6 style="color: black" class="card-title">
-                        Second Departure if Applicable:
-                    </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[1].segments[1].departure.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[1].segments[1].departure.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[1].segments[1].departure.at }}
-                        </li>
-                    </ul>
-                </div>
-                <div class="container-trips arrival-trips">
-                    <h6 style="color: black" class="card-title">
-                        Second Arrival is Applicable:
-                    </h6>
-                    <ul style="color: black">
-                        <li style="text-decoration: none">
-                            City: {{ flight.itineraries[1].segments[1].arrival.iataCode }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Terminal: {{ flight.itineraries[1].segments[1].arrival.terminal }}
-                        </li>
-                        <li style="text-decoration: none">
-                            Date: {{ flight.itineraries[1].segments[1].arrival.at }}
-                        </li>
-                        
-                    </ul>
-                </div>
-                <h5 style="color: black" class="card-title" name="currency">
-                    Price: ${{flight.price.total}}
-                </h5>
+            </div>
+               
                     <!-- <a href="/flights/vacation/{{flight.itineraries[0].segments[0].id}}" class="btn btn-info">Book Flight</a> -->
-                    <a class="btn btn-dark mt-3" href="/trip/show" role="button">Select Flight</a>
-                </div>
-        </div>
+                    {%comment%}<a class="btn btn-dark mt-3" href="/flight/vacation" method="POST" role="button">Back to Flights</a>
+                    {%endcomment%}
    {% comment %} {% endfor %} {% endcomment %}
     </div>
 {% endblock %}
